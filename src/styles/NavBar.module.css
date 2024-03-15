@@ -8,6 +8,6 @@
   padding-left: 15px;
 }
 
-.Active {
-  text-shadow: 0 8px 4px #ffc000;
+.Active i {
+  color: #2142b2;
 }
