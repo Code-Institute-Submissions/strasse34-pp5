@@ -15,6 +15,8 @@ import Upload from "../../assets/upload.png";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import BrandChoices from "./BrandChoices";
+import ProductionYearChoices from "./ProductionYearChoices";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -27,9 +29,9 @@ function PostCreateForm() {
     production: "",
     other_details: "",
     my_experience: "",
-    image: "",
+    car_image: "",
   });
-  const { brand, model, production, other_details, my_experience, image } =
+  const { brand, model, production, other_details, my_experience, car_image } =
     postData;
 
   const imageInput = useRef(null);
@@ -44,10 +46,10 @@ function PostCreateForm() {
 
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
-      URL.revokeObjectURL(image);
+      URL.revokeObjectURL(car_image);
       setPostData({
         ...postData,
-        image: URL.createObjectURL(event.target.files[0]),
+        car_image: URL.createObjectURL(event.target.files[0]),
       });
     }
   };
@@ -61,7 +63,7 @@ function PostCreateForm() {
     formData.append("production", production);
     formData.append("other_details", other_details);
     formData.append("my_experience", my_experience);
-    formData.append("image", imageInput.current.files[0]);
+    formData.append("car_image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -76,15 +78,17 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
-      <Form.Group>
+      <Form.Group controlId="brandChoices">
         <Form.Label>Brand</Form.Label>
         <Form.Control
+          as="select"
           type="text"
           name="brand"
           value={brand}
           onChange={handleChange}
-          placeholder="e.g. Toyota"
-        />
+        >
+          <BrandChoices />
+        </Form.Control>
       </Form.Group>
 
       <Form.Group>
@@ -97,15 +101,16 @@ function PostCreateForm() {
           placeholder="e.g. Rav4"
         />
       </Form.Group>
-      <Form.Group>
-        <Form.Label>production</Form.Label>
+      <Form.Group controlId="productionYearChoices">
+        <Form.Label>Production Year</Form.Label>
         <Form.Control
-          type="number"
+          as="select"
           name="production"
           value={production}
           onChange={handleChange}
-          placeholder="e.g. 2020"
-        />
+        >
+          <ProductionYearChoices />
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Other Details</Form.Label>
@@ -148,10 +153,14 @@ function PostCreateForm() {
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
             <Form.Group className="text-center">
-              {image ? (
+              {car_image ? (
                 <>
                   <figure>
-                    <Image className={appStyles.Image} src={image} rounded />
+                    <Image
+                      className={appStyles.Image}
+                      src={car_image}
+                      rounded
+                    />
                   </figure>
                   <div>
                     <Form.Label
