@@ -17,7 +17,7 @@ import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import BrandChoices from "./BrandChoices";
 import ProductionYearChoices from "./ProductionYearChoices";
-
+import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
@@ -95,7 +95,11 @@ function PostCreateForm() {
           <BrandChoices />
         </Form.Control>
       </Form.Group>
-
+      {errors?.brand?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Model</Form.Label>
         <Form.Control
@@ -106,6 +110,11 @@ function PostCreateForm() {
           placeholder="e.g. Rav4"
         />
       </Form.Group>
+      {errors?.model?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group controlId="productionYearChoices">
         <Form.Label>Production Year</Form.Label>
         <Form.Control
@@ -117,6 +126,11 @@ function PostCreateForm() {
           <ProductionYearChoices />
         </Form.Control>
       </Form.Group>
+      {errors?.production?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>Other Details</Form.Label>
         <Form.Control
@@ -127,6 +141,11 @@ function PostCreateForm() {
           placeholder="e.g. gear type, power, fuel consumption, etc."
         />
       </Form.Group>
+      {errors?.other_details?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Form.Group>
         <Form.Label>My Experience</Form.Label>
         <Form.Control
@@ -137,10 +156,14 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
-
+      {errors?.my_experience?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => {}}
+        onClick={() => history.goBack()}
       >
         cancel
       </Button>
@@ -191,6 +214,11 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
+            {errors?.image?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <div className="d-md-none">{textFields}</div>
           </Container>
         </Col>
