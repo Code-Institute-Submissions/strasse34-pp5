@@ -15,6 +15,8 @@ import Upload from "../../assets/upload.png";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import BrandChoices from "./BrandChoices";
+import ProductionYearChoices from "./ProductionYearChoices";
 
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -63,6 +65,11 @@ function PostCreateForm() {
     formData.append("my_experience", my_experience);
     formData.append("image", imageInput.current.files[0]);
 
+    console.log("FormData:");
+    for (let [key, value] of formData.entries()) {
+      console.log(`${key}: ${value}`);
+    }
+
     try {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
@@ -76,15 +83,17 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
-      <Form.Group>
+      <Form.Group controlId="brandChoices">
         <Form.Label>Brand</Form.Label>
         <Form.Control
+          as="select"
           type="text"
           name="brand"
           value={brand}
           onChange={handleChange}
-          placeholder="e.g. Toyota"
-        />
+        >
+          <BrandChoices />
+        </Form.Control>
       </Form.Group>
 
       <Form.Group>
@@ -97,15 +106,16 @@ function PostCreateForm() {
           placeholder="e.g. Rav4"
         />
       </Form.Group>
-      <Form.Group>
-        <Form.Label>production</Form.Label>
+      <Form.Group controlId="productionYearChoices">
+        <Form.Label>Production Year</Form.Label>
         <Form.Control
-          type="number"
+          as="select"
           name="production"
           value={production}
           onChange={handleChange}
-          placeholder="e.g. 2020"
-        />
+        >
+          <ProductionYearChoices />
+        </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Other Details</Form.Label>
