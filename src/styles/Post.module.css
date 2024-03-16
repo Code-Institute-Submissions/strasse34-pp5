@@ -1,0 +1,36 @@
+.Post {
+  background-color: #ffffff;
+  border: 1px solid #dadadf;
+  border-radius: 2px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Post figure,
+h5 {
+  margin: 0 0;
+}
+
+.Heart {
+  color: #f85032;
+}
+
+.Heart:hover {
+  color: #2142b2;
+}
+
+.HeartOutline:hover {
+  color: #f85032;
+}
+
+.StarContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 12%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
