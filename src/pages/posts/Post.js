@@ -6,6 +6,7 @@ import { Link, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
+import RatingsAverageStar from "../../components/RatingsAverageStar";
 
 const Post = (props) => {
   const {
@@ -30,34 +31,6 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
-
-  // Function to generate star icons based on the rating average
-  const generateStars = () => {
-    const stars = [];
-    // If ratings_average is null or not defined, return empty stars
-    if (!ratings_average) {
-      for (let i = 0; i < 5; i++) {
-        stars.push(
-          <i key={i} className="far fa-star" style={{ color: "gray" }}></i>
-        );
-      }
-    } else {
-      // Calculate the number of filled stars based on ratings_average
-      const filledStars = Math.round(parseFloat(ratings_average));
-      for (let i = 0; i < 5; i++) {
-        if (i < filledStars) {
-          stars.push(
-            <i key={i} className="fas fa-star" style={{ color: "gold" }}></i>
-          );
-        } else {
-          stars.push(
-            <i key={i} className="far fa-star" style={{ color: "gray" }}></i>
-          );
-        }
-      }
-    }
-    return stars;
-  };
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -127,7 +100,9 @@ const Post = (props) => {
           {/* Image container */}
           <Card.Img src={image} alt={brand} />
           {/* Stars container */}
-          <div className={styles.StarContainer}>{generateStars()}</div>
+          <div className={styles.StarContainer}>
+            <RatingsAverageStar value={ratings_average} />
+          </div>
         </div>
       </Link>
       <Card.Body>
