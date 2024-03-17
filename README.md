@@ -1,3 +1,14 @@
+extra packages I used
+
+npm install --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/free-regular-svg-icons
+npm install --save @fortawesome/react-fontawesome
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

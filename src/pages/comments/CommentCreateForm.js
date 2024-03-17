@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-
-import styles from "../../styles/CommentCreateEditForm.module.css";
+import { Form, InputGroup, Button } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import StarRating from "../../components/StarRating"; // Assuming you have defined StarRating component
 
 function CommentCreateForm(props) {
-  const { post, setPost, setComments, profileImage, profile_id } = props;
+  const { post, setPost, setComments, profileImage, profile_id, currentUser } =
+    props;
   const [content, setContent] = useState("");
+  const [rating, setRating] = useState(0);
+  const [error, setError] = useState(null);
 
   const handleChange = (event) => {
     setContent(event.target.value);
@@ -19,27 +19,57 @@ function CommentCreateForm(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axiosRes.post("/comments/", {
+      if (!content.trim()) {
+        throw new Error("Comment field cannot be empty.");
+      }
+
+      // Send comment data
+      const commentData = {
         content,
         post,
-      });
+      };
+      await axiosRes.post("/comments/", commentData);
+
+      // If rating is not 0, send rating data
+      if (rating !== 0) {
+        const ratingData = {
+          post,
+          stars: rating,
+        };
+        await axiosRes.post("/ratings/", ratingData);
+      }
+
+      // Update state and reset form
       setComments((prevComments) => ({
         ...prevComments,
-        results: [data, ...prevComments.results],
-      }));
-      setPost((prevPost) => ({
         results: [
           {
-            ...prevPost.results[0],
-            comments_count: prevPost.results[0].comments_count + 1,
+            content,
+            owner: currentUser,
+            created_at: new Date().toISOString(),
           },
+          ...prevComments.results,
         ],
       }));
+      setPost((prevPost) => ({
+        ...prevPost,
+        comments_count: prevPost.comments_count + 1,
+      }));
       setContent("");
+      setRating(0);
+      setError(null);
     } catch (err) {
-      console.log(err);
+      if (err.response?.data?.detail) {
+        setError(err.response.data.detail);
+      } else {
+        console.log(err);
+      }
     }
   };
+
+  useEffect(() => {
+    setError(null); // Reset error when content or rating changes
+  }, [content, rating]);
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
@@ -49,7 +79,6 @@ function CommentCreateForm(props) {
             <Avatar src={profileImage} />
           </Link>
           <Form.Control
-            className={styles.Form}
             placeholder="my comment..."
             as="textarea"
             value={content}
@@ -57,14 +86,20 @@ function CommentCreateForm(props) {
             rows={2}
           />
         </InputGroup>
+        {error && <p className="text-danger">{error}</p>}
       </Form.Group>
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
+
+      {!currentUser || currentUser.username !== post.owner.username ? (
+        <StarRating value={rating} onChange={setRating} />
+      ) : null}
+
+      <Button
+        className="btn d-block ml-auto"
         disabled={!content.trim()}
         type="submit"
       >
-        post
-      </button>
+        Post
+      </Button>
     </Form>
   );
 }

@@ -1,0 +1,21 @@
+.RatingContainer {
+  margin-top: 10px;
+}
+
+.StarContainer {
+  display: flex;
+}
+
+.Selected {
+  color: gold;
+}
+
+.Unselected {
+  color: gray;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.Selected:hover {
+  color: gold;
+}
