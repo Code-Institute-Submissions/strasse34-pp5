@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   const {
@@ -22,6 +23,7 @@ const Post = (props) => {
     updated_at,
     ratings_average,
     postPage,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -55,6 +57,38 @@ const Post = (props) => {
     return stars;
   };
 
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -74,13 +108,15 @@ const Post = (props) => {
           {/* Image container */}
           <Card.Img src={image} alt={brand} />
           {/* Stars container */}
-          <div className={styles.StarContainer}>
-            {generateStars()}
-          </div>
+          <div className={styles.StarContainer}>{generateStars()}</div>
         </div>
       </Link>
       <Card.Body>
-        {(brand || model || other_details) && <Card.Title className="text-center">{brand} {model} {other_details}</Card.Title>}
+        {(brand || model || other_details) && (
+          <Card.Title className="text-center">
+            {brand} {model} {other_details}
+          </Card.Title>
+        )}
         {my_experience && <Card.Text>{my_experience}</Card.Text>}
         <div className={styles.PostBar}>
           {is_owner ? (
@@ -91,11 +127,11 @@ const Post = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() => {}}>
+            <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleLike}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
