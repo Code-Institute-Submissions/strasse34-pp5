@@ -15,11 +15,12 @@ import Upload from "../../assets/upload.png";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import BrandChoices from "./BrandChoices";
-import ProductionYearChoices from "./ProductionYearChoices";
+
 import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import ProductionYearChoices from "../../components/ProductionYearChoices";
+import BrandChoices from "../../components/BrandChoices";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -83,7 +84,7 @@ function PostCreateForm() {
 
   const textFields = (
     <div className="text-center">
-      <Form.Group controlId="brandChoices">
+      <Form.Group>
         <Form.Label>Brand</Form.Label>
         <Form.Control
           as="select"
@@ -115,7 +116,7 @@ function PostCreateForm() {
           {message}
         </Alert>
       ))}
-      <Form.Group controlId="productionYearChoices">
+      <Form.Group>
         <Form.Label>Production Year</Form.Label>
         <Form.Control
           as="select"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const BrandChoices = () => {
   const theBrands = [
@@ -17,13 +17,15 @@ const BrandChoices = () => {
     { value: "Subaru", label: "Subaru" },
     { value: "Mazda", label: "Mazda" },
     { value: "Tesla", label: "Tesla" },
-    { value: "Lexus", label: "Lexus" }
+    { value: "Lexus", label: "Lexus" },
   ];
 
   return (
     <>
       {theBrands.map((brand, index) => (
-        <option key={index} value={brand.value}>{brand.label}</option>
+        <option key={index} value={brand.value}>
+          {brand.label}
+        </option>
       ))}
     </>
   );
