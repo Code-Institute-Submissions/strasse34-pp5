@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Form, InputGroup, Button } from "react-bootstrap";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
-import StarRating from "../../components/StarRating"; // Assuming you have defined StarRating component
+import StarRatingWhileCommenting from "../../components/StarRatingWhileCommenting";
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id, currentUser } =
@@ -29,6 +29,7 @@ function CommentCreateForm(props) {
         post,
       };
       await axiosRes.post("/comments/", commentData);
+      console.log(commentData)
 
       // If rating is not 0, send rating data
       if (rating !== 0) {
@@ -37,8 +38,9 @@ function CommentCreateForm(props) {
           stars: rating,
         };
         await axiosRes.post("/ratings/", ratingData);
+        console.log(ratingData)
       }
-
+      
       // Update state and reset form
       setComments((prevComments) => ({
         ...prevComments,
@@ -90,7 +92,7 @@ function CommentCreateForm(props) {
       </Form.Group>
 
       {!currentUser || currentUser.username !== post.owner.username ? (
-        <StarRating value={rating} onChange={setRating} />
+        <StarRatingWhileCommenting value={rating} onChange={setRating} />
       ) : null}
 
       <Button

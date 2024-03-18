@@ -9,6 +9,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import CommentEditForm from "./CommentEditForm";
 
+
 const Comment = (props) => {
   const {
     profile_id,
@@ -16,6 +17,7 @@ const Comment = (props) => {
     owner,
     updated_at,
     content,
+    
     id,
     setPost,
     setComments,
@@ -64,7 +66,10 @@ const Comment = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p>{content}</p>
+            <>
+              
+              <p>{content}</p>
+            </>
           )}
         </Media.Body>
         {is_owner && !showEditForm && (
