@@ -28,7 +28,11 @@ const RatingsAverageStar = ({ value }) => {
       // Add half star if remainder >= 0.25 and < 0.75
       if (remainder >= 0.25 && remainder < 0.75) {
         stars.push(
-          <i key="half" className="fas fa-star-half-alt" style={{ color: "gold" }}></i>
+          <i
+            key="half"
+            className="fas fa-star-half-alt"
+            style={{ color: "gold" }}
+          ></i>
         );
       }
 
@@ -43,7 +47,11 @@ const RatingsAverageStar = ({ value }) => {
       const remainingStars = 5 - stars.length;
       for (let i = 0; i < remainingStars; i++) {
         stars.push(
-          <i key={i + fullStars + 1} className="far fa-star" style={{ color: "gray" }}></i>
+          <i
+            key={i + fullStars + 1}
+            className="far fa-star"
+            style={{ color: "gray" }}
+          ></i>
         );
       }
     }
