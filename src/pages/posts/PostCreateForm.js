@@ -5,25 +5,23 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
-import Image from "react-bootstrap/Image";
-
-import Asset from "../../components/Asset";
-
+import Alert from "react-bootstrap/Alert";
 import Upload from "../../assets/upload.png";
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
+import Asset from "../../components/Asset";
+import { Image } from "react-bootstrap";
+import BrandChoices from "../../components/BrandChoices";
+import ProductionYearChoices from "../../components/ProductionYearChoices";
 
-import Alert from "react-bootstrap/Alert";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import ProductionYearChoices from "../../components/ProductionYearChoices";
-import BrandChoices from "../../components/BrandChoices";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
+
   const [postData, setPostData] = useState({
     brand: "",
     model: "",
@@ -64,12 +62,8 @@ function PostCreateForm() {
     formData.append("production", production);
     formData.append("other_details", other_details);
     formData.append("my_experience", my_experience);
-    formData.append("image", imageInput.current.files[0]);
 
-    console.log("FormData:");
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+    formData.append("image", imageInput.current.files[0]);
 
     try {
       const { data } = await axiosReq.post("/posts/", formData);
@@ -88,7 +82,6 @@ function PostCreateForm() {
         <Form.Label>Brand</Form.Label>
         <Form.Control
           as="select"
-          type="text"
           name="brand"
           value={brand}
           onChange={handleChange}
@@ -96,7 +89,7 @@ function PostCreateForm() {
           <BrandChoices />
         </Form.Control>
       </Form.Group>
-      {errors?.brand?.map((message, idx) => (
+      {errors.brand?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -108,16 +101,15 @@ function PostCreateForm() {
           name="model"
           value={model}
           onChange={handleChange}
-          placeholder="e.g. Rav4"
         />
       </Form.Group>
-      {errors?.model?.map((message, idx) => (
+      {errors.model?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Production Year</Form.Label>
+        <Form.Label>Brand</Form.Label>
         <Form.Control
           as="select"
           name="production"
@@ -127,7 +119,7 @@ function PostCreateForm() {
           <ProductionYearChoices />
         </Form.Control>
       </Form.Group>
-      {errors?.production?.map((message, idx) => (
+      {errors.production?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -139,10 +131,9 @@ function PostCreateForm() {
           name="other_details"
           value={other_details}
           onChange={handleChange}
-          placeholder="e.g. gear type, power, fuel consumption, etc."
         />
       </Form.Group>
-      {errors?.other_details?.map((message, idx) => (
+      {errors.other_details?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -157,11 +148,12 @@ function PostCreateForm() {
           onChange={handleChange}
         />
       </Form.Group>
-      {errors?.my_experience?.map((message, idx) => (
+      {errors.my_experience?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
+
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}
@@ -215,7 +207,7 @@ function PostCreateForm() {
                 ref={imageInput}
               />
             </Form.Group>
-            {errors?.image?.map((message, idx) => (
+            {errors.image?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
