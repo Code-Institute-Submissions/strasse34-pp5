@@ -57,7 +57,7 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span className={styles.Owner}>{owner}</span>
           <span className={styles.Date}>{updated_at}</span>
-          {/* {showEditForm ? (
+          {showEditForm ? (
             <CommentEditForm
               id={id}
               profile_id={profile_id}
@@ -72,7 +72,7 @@ const Comment = (props) => {
               <ShowStarsInCommentList value={stars} />
               <p>{content}</p>
             </>
-          )} */}
+          )}
         </Media.Body>
         {is_owner && !showEditForm && (
           <MoreDropdown
