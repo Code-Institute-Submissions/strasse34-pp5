@@ -79,8 +79,17 @@ function CommentCreateForm(props) {
         </Alert>
       ))}
       <FormGroup>
-        <StarRating value={stars} handleChange={handleStarChange} />
+        <StarRating
+          value={stars}
+          name={stars}
+          handleChange={handleStarChange}
+        />
       </FormGroup>
+      {errors.content?.map((message, idx) => (
+        <Alert stars="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       <button
         className={`${styles.Button} btn d-block ml-auto`}
         disabled={!content.trim()}
