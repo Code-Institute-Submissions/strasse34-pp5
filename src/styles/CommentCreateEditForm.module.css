@@ -1,6 +1,5 @@
 .Form {
   border: none;
-  border-bottom: 2px #00d1ff solid;
 }
 
 .Button {
@@ -17,4 +16,11 @@
   cursor: pointer;
   background-color: aliceblue;
   color: #242a3d;
+}
+
+.StarRatingCont {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px #00d1ff solid;
+  margin-left: 70px;
 }

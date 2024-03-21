@@ -8,3 +8,13 @@
   font-weight: lighter;
   color: #c1c1c5;
 }
+
+/* show stars in comment list */
+.Star {
+  color: gold;
+  font-size: 1rem;
+  padding-right: 0.6px;
+  padding-left: 0;
+}
+
+

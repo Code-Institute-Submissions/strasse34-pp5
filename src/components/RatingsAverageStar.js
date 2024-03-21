@@ -9,7 +9,7 @@ const RatingsAverageStar = ({ value }) => {
     if (!filledStars) {
       for (let i = 0; i < 5; i++) {
         stars.push(
-          <i key={i} className="far fa-star" style={{ color: "gray" }}></i>
+          <i key={i} className="far fa-star" style={{ color: "gold" }}></i>
         );
       }
     } else {
@@ -50,7 +50,7 @@ const RatingsAverageStar = ({ value }) => {
           <i
             key={i + fullStars + 1}
             className="far fa-star"
-            style={{ color: "gray" }}
+            style={{ color: "gold" }}
           ></i>
         );
       }

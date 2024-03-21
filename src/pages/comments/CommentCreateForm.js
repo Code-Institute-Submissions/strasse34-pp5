@@ -49,7 +49,7 @@ function CommentCreateForm(props) {
       console.log({ content, post, stars });
     } catch (err) {
       console.log(err);
-      if (err.response?.status !== 401) {
+      if (err.response?.status === 400) {
         setErrors(err.response?.data);
       }
     }
@@ -64,7 +64,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="my comment..."
+            placeholder="my experience..."
             name="content"
             as="textarea"
             value={content}
@@ -78,12 +78,13 @@ function CommentCreateForm(props) {
           {message}
         </Alert>
       ))}
-      <FormGroup>
+      <FormGroup className={styles.StarRatingCont}>
         <StarRating
           value={stars}
           name={stars}
           handleChange={handleStarChange}
         />
+        <p>Rate this car befor posting!</p>
       </FormGroup>
       {errors.content?.map((message, idx) => (
         <Alert stars="warning" key={idx}>
