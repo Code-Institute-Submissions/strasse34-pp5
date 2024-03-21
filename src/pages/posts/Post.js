@@ -150,9 +150,9 @@ const Post = (props) => {
         </Row>
 
         <div className={styles.PostContnet}>
-          {(brand || model || production || other_details) && (
+          {(brand || model || other_details || production) && (
             <Card.Title className="text-center">
-              {brand} {model} {production} {other_details}
+              {brand} {model} {other_details} {production}
             </Card.Title>
           )}
           {my_experience && <Card.Text>{my_experience}</Card.Text>}
