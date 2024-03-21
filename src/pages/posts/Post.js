@@ -4,6 +4,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import RatingsAverageStar from "../../components/RatingsAverageStar";
 
 const Post = (props) => {
   // view just post details in PostPage
@@ -19,7 +20,7 @@ const Post = (props) => {
     content,
     image,
     updated_at,
-    postPage,       
+    postPage,
     ratings_average,
   } = props;
 
@@ -75,10 +76,8 @@ const Post = (props) => {
             <i className="far fa-comments" />
           </Link>
           {comments_count}
-          <Link to={`/posts/${id}`}>
-            <i class="fa-regular fa-star" />
-          </Link>
-          {ratings_average}
+          <RatingsAverageStar value={ratings_average} />
+          {ratings_average} / {comments_count} <span>   Ratings</span>
         </div>
       </Card.Body>
     </Card>
