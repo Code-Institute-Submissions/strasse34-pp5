@@ -64,7 +64,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="my experience..."
+            placeholder="My experience..."
             name="content"
             as="textarea"
             value={content}
