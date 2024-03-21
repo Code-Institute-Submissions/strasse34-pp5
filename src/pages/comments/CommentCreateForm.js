@@ -86,7 +86,7 @@ function CommentCreateForm(props) {
         />
         <p>Rate this car befor posting!</p>
       </FormGroup>
-      {errors.content?.map((message, idx) => (
+      {errors.stars?.map((message, idx) => (
         <Alert stars="warning" key={idx}>
           {message}
         </Alert>
