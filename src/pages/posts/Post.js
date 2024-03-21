@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Card,
+  Media,
+  OverlayTrigger,
+  Tooltip,
+  Row,
+  Col,
+} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import RatingsAverageStar from "../../components/RatingsAverageStar";
@@ -48,46 +55,52 @@ const Post = (props) => {
         <Card.Img src={image} alt={brand} />
       </Link>
       <Card.Body>
-        
-        <div className={styles.PostBar}>
-          {is_owner ? (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>You can't like your own post!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          ) : like_id ? (
-            <span onClick={() => {}}>
-              <i className={`fas fa-heart ${styles.Heart}`} />
-            </span>
-          ) : currentUser ? (
-            <span onClick={() => {}}>
-              <i className={`far fa-heart ${styles.HeartOutline}`} />
-            </span>
-          ) : (
-            <OverlayTrigger
-              placement="top"
-              overlay={<Tooltip>Log in to like posts!</Tooltip>}
-            >
-              <i className="far fa-heart" />
-            </OverlayTrigger>
-          )}
-          {likes_count}
-          <Link to={`/posts/${id}`}>
-            <i className="far fa-comments" />
-          </Link>
-          {comments_count}
-          <RatingsAverageStar value={ratings_average} />
-          {ratings_average} / {comments_count} <span> Ratings</span>
-        </div>
+        <Row className={styles.PostBar}>
+          <Col xs={12} md={3}>
+            {is_owner ? (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't like your own post!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            ) : like_id ? (
+              <span onClick={() => {}}>
+                <i className={`fas fa-heart ${styles.Heart}`} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={() => {}}>
+                <i className={`far fa-heart ${styles.HeartOutline}`} />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            )}
+            {likes_count}
+            <Link to={`/posts/${id}`}>
+              <i className="far fa-comments" />
+            </Link>
+            {comments_count}
+          </Col>
+          <Col xs={12} md={6} className="text-center">
+            <RatingsAverageStar value={ratings_average} />            
+          </Col>
+          <Col xs={12} md={3} className="text-center">          
+            {ratings_average} / {comments_count} Ratings
+          </Col>
+        </Row>
+
         <div className={styles.PostContnet}>
           {(brand || model || production || other_details) && (
             <Card.Title className="text-center">
               {brand} {model} {production} {other_details}
             </Card.Title>
           )}
-        {my_experience && <Card.Text>{my_experience}</Card.Text>}
+          {my_experience && <Card.Text>{my_experience}</Card.Text>}
         </div>
       </Card.Body>
     </Card>
