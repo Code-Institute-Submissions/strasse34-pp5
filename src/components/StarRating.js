@@ -3,10 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 
-
-const StarRatingWhileCommenting = ({ value, onChange, isOwner }) => {
-  const disabled = isOwner; // Disable stars if user is the owner of the post
-
+const StarRating = ({ value, handleChange }) => {
   return (
     <div>
       {[1, 2, 3, 4, 5].map((star) => (
@@ -15,14 +12,12 @@ const StarRatingWhileCommenting = ({ value, onChange, isOwner }) => {
           icon={star <= value ? solidStar : regularStar}
           style={{
             color: star <= value ? "gold" : "gray",
-            cursor: disabled ? "not-allowed" : "pointer",
           }}
-          onClick={() => !disabled && onChange(star)}
+          onClick={() => handleChange(star)}
         />
       ))}
     </div>
   );
 };
 
-
-export default StarRatingWhileCommenting;
+export default StarRating;

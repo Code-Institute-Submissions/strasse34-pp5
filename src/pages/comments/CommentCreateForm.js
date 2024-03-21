@@ -1,18 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
+import StarRating from "../../components/StarRating";
 import { axiosRes } from "../../api/axiosDefaults";
+import { FormGroup } from "react-bootstrap";
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
+  const [stars, setStars] = useState(0);
+  const [errors, setErrors] = useState({});
 
-  const handleChange = (event) => {
+  const handleStarChange = (star) => {
+    setStars(star);
+  };
+
+  const handleContentChange = (event) => {
     setContent(event.target.value);
   };
 
@@ -22,6 +30,7 @@ function CommentCreateForm(props) {
       const { data } = await axiosRes.post("/comments/", {
         content,
         post,
+        stars,
       });
       setComments((prevComments) => ({
         ...prevComments,
@@ -36,8 +45,13 @@ function CommentCreateForm(props) {
         ],
       }));
       setContent("");
+      setStars(0);
+      console.log({ content, post, stars });
     } catch (err) {
       console.log(err);
+      if (err.response?.status !== 401) {
+        setErrors(err.response?.data);
+      }
     }
   };
 
@@ -51,13 +65,22 @@ function CommentCreateForm(props) {
           <Form.Control
             className={styles.Form}
             placeholder="my comment..."
+            name="content"
             as="textarea"
             value={content}
-            onChange={handleChange}
+            onChange={handleContentChange}
             rows={2}
           />
         </InputGroup>
       </Form.Group>
+      {errors.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <FormGroup>
+        <StarRating value={stars} handleChange={handleStarChange} />
+      </FormGroup>
       <button
         className={`${styles.Button} btn d-block ml-auto`}
         disabled={!content.trim()}
