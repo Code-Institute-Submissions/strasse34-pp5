@@ -48,12 +48,7 @@ const Post = (props) => {
         <Card.Img src={image} alt={brand} />
       </Link>
       <Card.Body>
-        {(brand || model || production || other_details) && (
-          <Card.Title className="text-center">
-            {brand} {model} {production} {other_details}
-          </Card.Title>
-        )}
-        {my_experience && <Card.Text>{my_experience}</Card.Text>}
+        
         <div className={styles.PostBar}>
           {is_owner ? (
             <OverlayTrigger
@@ -85,6 +80,14 @@ const Post = (props) => {
           {comments_count}
           <RatingsAverageStar value={ratings_average} />
           {ratings_average} / {comments_count} <span> Ratings</span>
+        </div>
+        <div className={styles.PostContnet}>
+          {(brand || model || production || other_details) && (
+            <Card.Title className="text-center">
+              {brand} {model} {production} {other_details}
+            </Card.Title>
+          )}
+        {my_experience && <Card.Text>{my_experience}</Card.Text>}
         </div>
       </Card.Body>
     </Card>
