@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import RatingsAverageStar from "../../components/RatingsAverageStar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 const Post = (props) => {
   // view just post details in PostPage
@@ -32,10 +33,43 @@ const Post = (props) => {
     updated_at,
     postPage,
     ratings_average,
+    setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { post: id });
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      setPosts((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((post) => {
+          return post.id === id
+            ? { ...post, likes_count: post.likes_count - 1, like_id: null }
+            : post;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Post}>
@@ -65,11 +99,11 @@ const Post = (props) => {
                 <i className="far fa-heart" />
               </OverlayTrigger>
             ) : like_id ? (
-              <span onClick={() => {}}>
+              <span onClick={handleUnlike}>
                 <i className={`fas fa-heart ${styles.Heart}`} />
               </span>
             ) : currentUser ? (
-              <span onClick={() => {}}>
+              <span onClick={handleLike}>
                 <i className={`far fa-heart ${styles.HeartOutline}`} />
               </span>
             ) : (
@@ -87,9 +121,9 @@ const Post = (props) => {
             {comments_count}
           </Col>
           <Col xs={12} md={6} className="text-center">
-            <RatingsAverageStar value={ratings_average} />            
+            <RatingsAverageStar value={ratings_average} />
           </Col>
-          <Col xs={12} md={3} className="text-center">          
+          <Col xs={12} md={3} className="text-center">
             {ratings_average} / {comments_count} Ratings
           </Col>
         </Row>
