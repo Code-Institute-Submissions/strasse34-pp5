@@ -1,5 +1,4 @@
 import { axiosReq } from "../api/axiosDefaults";
-import PopularProfiles from "../pages/profiles/PopularProfiles";
 
 export const fetchMoreData = async (resource, setResource) => {
   try {
@@ -17,7 +16,7 @@ export const fetchMoreData = async (resource, setResource) => {
 };
 
 export const followHelper = (profile, clickedProfile, following_id) => {
-  return PopularProfiles.id === clickedProfile.id
+  return profile.id === clickedProfile.id
     ? {
         ...profile,
         followers_count: profile.followers_count + 1,
@@ -39,3 +38,19 @@ export const unfollowHelper = (profile, clickedProfile) => {
     ? { ...profile, following_count: profile.following_count - 1 }
     : profile;
 };
+
+// export const fetchUpdatedRatingAverage = async (id, setPost) => {
+//   try {
+//     const { data } = await axiosReq.get(`/posts/${id}/`);
+//     setPost((prevPost) => ({
+//       ...prevPost,
+//       results: prevPost.results.map((post) => {
+//         return post.id === id
+//           ? { ...post, ratings_average: data.ratings_average }
+//           : post;
+//       }),
+//     }));
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };

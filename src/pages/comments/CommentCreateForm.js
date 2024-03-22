@@ -9,6 +9,7 @@ import Avatar from "../../components/Avatar";
 import StarRating from "../../components/StarRating";
 import { axiosRes } from "../../api/axiosDefaults";
 import { FormGroup } from "react-bootstrap";
+// import { fetchUpdatedRatingAverage } from "../../utils/utils";
 
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
@@ -47,6 +48,7 @@ function CommentCreateForm(props) {
       setContent("");
       setStars(0);
       console.log({ content, post, stars });
+      // await fetchUpdatedRatingAverage(post.id, setPost);
     } catch (err) {
       console.log(err);
       if (err.response?.status === 400) {
