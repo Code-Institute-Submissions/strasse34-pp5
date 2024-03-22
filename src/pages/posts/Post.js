@@ -89,7 +89,7 @@ const Post = (props) => {
 
   return (
     <Card className={styles.Post}>
-      <Card.Body>
+      <Card.Body className={styles.CardBodyAvatar}>
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
@@ -144,7 +144,7 @@ const Post = (props) => {
           <Col xs={12} md={6} className="text-center">
             <RatingsAverageStar value={ratings_average} />
           </Col>
-          <Col xs={12} md={3} className="text-center">
+          <Col xs={12} md={3} className={styles.RatingText}>
             {ratings_average} / {comments_count} <span>Ratings</span>
           </Col>
         </Row>
