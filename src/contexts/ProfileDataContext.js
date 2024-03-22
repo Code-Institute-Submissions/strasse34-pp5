@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { followHelper, unfollowHelper } from "../utils/utils";
+import PopularProfiles from "../pages/profiles/PopularProfiles";
 
 const ProfileDataContext = createContext();
 const SetProfileDataContext = createContext();
@@ -27,15 +28,31 @@ export const ProfileDataProvider = ({ children }) => {
       setProfileData((prevState) => ({
         ...prevState,
         pageProfile: {
-          results: prevState.pageProfile.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
-          ),
+          results: prevState.pageProfile.results.map((profile) => {
+            return PopularProfiles.id === clickedProfile.id
+              ? {
+                  ...profile,
+                  followers_count: profile.followers_count + 1,
+                  following_id: data.id,
+                }
+              : profile.is_owner
+              ? { ...profile, following_count: profile.following_count + 1 }
+              : profile;
+          }),
         },
         popularProfiles: {
           ...prevState.popularProfiles,
-          results: prevState.popularProfiles.results.map((profile) =>
-            followHelper(profile, clickedProfile, data.id)
-          ),
+          results: prevState.popularProfiles.results.map((profile) => {
+            return PopularProfiles.id === clickedProfile.id
+              ? {
+                  ...profile,
+                  followers_count: profile.followers_count + 1,
+                  following_id: data.id,
+                }
+              : profile.is_owner
+              ? { ...profile, following_count: profile.following_count + 1 }
+              : profile;
+          }),
         },
       }));
     } catch (err) {

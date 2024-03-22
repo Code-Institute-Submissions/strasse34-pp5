@@ -18,6 +18,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 function App() {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
