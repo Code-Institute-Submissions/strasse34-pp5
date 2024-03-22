@@ -15,8 +15,10 @@ import {
   Alert,
 } from "react-bootstrap";
 import axios from "axios";
+import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
+  useRedirect("loggedIn");
   const [signUpData, setSignUpData] = useState({
     username: "",
     password1: "",
@@ -129,9 +131,7 @@ const SignUpForm = () => {
       >
         <Image
           className={`${appStyles.FillerImage}`}
-          src={
-            "https://res.cloudinary.com/dn2dfatdi/image/upload/v1710406061/media/pp5/images/w31al6iyit6fylemepff.jpg"
-          }
+          src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero2.jpg"}
         />
       </Col>
     </Row>

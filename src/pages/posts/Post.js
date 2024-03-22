@@ -109,7 +109,7 @@ const Post = (props) => {
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={brand} />
       </Link>
-      <Card.Body>
+      <Card.Body className={styles.CardBody}>
         <Row className={styles.PostBar}>
           <Col xs={12} md={3}>
             {is_owner ? (
@@ -145,7 +145,7 @@ const Post = (props) => {
             <RatingsAverageStar value={ratings_average} />
           </Col>
           <Col xs={12} md={3} className="text-center">
-            {ratings_average} / {comments_count} Ratings
+            {ratings_average} / {comments_count} <span>Ratings</span>
           </Col>
         </Row>
 
