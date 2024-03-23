@@ -16,6 +16,7 @@ function CommentCreateForm(props) {
   const [content, setContent] = useState("");
   const [stars, setStars] = useState(0);
   const [errors, setErrors] = useState({});
+  const [nonFieldErrors, setNonFieldErrors] = useState([]);
 
   const handleStarChange = (star) => {
     setStars(star);
@@ -51,11 +52,17 @@ function CommentCreateForm(props) {
       // await fetchUpdatedRatingAverage(post.id, setPost);
     } catch (err) {
       console.log(err);
-      if (err.response?.status === 400) {
-        setErrors(err.response?.data);
+      if (err.response?.status !== 401) {
+        if (err.response?.data && err.response.data.non_field_errors) {
+          setNonFieldErrors(err.response.data.non_field_errors);
+        } else {
+          setErrors(err.response?.data || {});
+        }
       }
     }
   };
+
+  console.log(errors);
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
@@ -66,8 +73,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="My experience..."
-            name="content"
+            placeholder="My experience..."            
             as="textarea"
             value={content}
             onChange={handleContentChange}
@@ -75,24 +81,21 @@ function CommentCreateForm(props) {
           />
         </InputGroup>
       </Form.Group>
-      {errors.content?.map((message, idx) => (
-        <Alert variant="warning" key={idx}>
-          {message}
-        </Alert>
-      ))}
       <FormGroup className={styles.StarRatingCont}>
         <StarRating
-          value={stars}
-          name={stars}
+          value={stars}          
           handleChange={handleStarChange}
         />
         <p>Rate this car befor posting!</p>
       </FormGroup>
-      {errors.stars?.map((message, idx) => (
-        <Alert stars="warning" key={idx}>
-          {message}
+      {nonFieldErrors.length > 0 && (
+        <Alert variant="danger">
+          {nonFieldErrors.map((error, index) => (
+            <p key={index}>{error}</p>
+          ))}
         </Alert>
-      ))}
+      )}
+
       <button
         className={`${styles.Button} btn d-block ml-auto`}
         disabled={!content.trim()}
