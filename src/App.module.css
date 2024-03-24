@@ -1,6 +1,6 @@
 .App {
   font-family: "DM Sans", sans-serif;
-  background-color: #f8f8f8;
+  background-color: #e5e5e5;
   min-height: 100vh;
 }
 
@@ -37,11 +37,11 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #f2bc0a;
+  color: #fca311;
 }
 
 a:hover i {
-  color: #f2bc0a;
+  color: #fca311;
 }
 
 input[type="file"] {
@@ -58,7 +58,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #f2bc0a;
+  color: #fca311;
 }
 
 figure {
