@@ -15,7 +15,6 @@ function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
   const [stars, setStars] = useState(0);
-  const [errors, setErrors] = useState({});
   const [nonFieldErrors, setNonFieldErrors] = useState([]);
 
   const handleStarChange = (star) => {
@@ -51,18 +50,14 @@ function CommentCreateForm(props) {
       console.log({ content, post, stars });
       // await fetchUpdatedRatingAverage(post.id, setPost);
     } catch (err) {
-      console.log(err);
-      if (err.response?.status !== 401) {
+      if (err.response?.status === 400) {
         if (err.response?.data && err.response.data.non_field_errors) {
           setNonFieldErrors(err.response.data.non_field_errors);
-        } else {
-          setErrors(err.response?.data || {});
+          console.log(err.response.data.non_field_errors);
         }
       }
     }
   };
-
-  console.log(errors);
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
@@ -73,7 +68,7 @@ function CommentCreateForm(props) {
           </Link>
           <Form.Control
             className={styles.Form}
-            placeholder="My experience..."            
+            placeholder="My experience..."
             as="textarea"
             value={content}
             onChange={handleContentChange}
@@ -82,10 +77,7 @@ function CommentCreateForm(props) {
         </InputGroup>
       </Form.Group>
       <FormGroup className={styles.StarRatingCont}>
-        <StarRating
-          value={stars}          
-          handleChange={handleStarChange}
-        />
+        <StarRating value={stars} handleChange={handleStarChange} />
         <p>Rate this car befor posting!</p>
       </FormGroup>
       {nonFieldErrors.length > 0 && (
