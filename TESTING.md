@@ -1,3 +1,35 @@
+# TESTING
+
+## Table of Contents
+
+- [Device testing](#device-testing)
+- [Manual testing of user stories](#manual-testing-of-user-stories)
+- [Bug Reports and Resolutions](#bug-reports-and-resolutions)
+
+## Device testing
+
+- Project was tested using various devices and browsers
+- In all devices website was loading but unable to sign in in few devices especially smaller devices
+
+- Macbook Pro 2019 16-inch
+
+  - Firefox
+
+      <details><summary>Screenshot</summary>
+      <img src="docs/firefox.png">
+          
+      </details>
+
+  - Microsoft Edge
+
+      <details><summary>Screenshot</summary>
+      <img src="docs/edge.png" >
+      </details>
+
+- Also tested various device sizes using [Dev.tools](https://developer.chrome.com/docs/devtools/)
+
+## Manual testing of user stories
+
 ### Navigation and Authentication
 
 1. **View Navbar**: As a user, I can view a navbar from every page so that I can navigate easily between pages.
@@ -86,3 +118,32 @@
 | Follow/Unfollow a User            | Visit a user's profile page.                                               | The profile page provides an option to follow or unfollow the user. The follow/unfollow status is updated in real-time.                   | Work as expected |
 | View All Posts by a Specific User | Click on a user's profile link or avatar to access their profile.          | The user's profile page prominently displays their posts, either through pagination or infinite scrolling.                                | Work as expected |
 | Edit Profile                      | Access the account settings page or profile page.                          | The account settings page provides separate sections for updating the profile picture, bio, username, and password fields.                | Work as expected |
+
+## Bug Reports and Resolutions
+
+- **Issue:** Automatically logging in when accessing a specific post URL while logged out.
+
+  - **Resolution:** Implemented authentication checks to prevent auto-login in such scenarios. (Refer to `dj-rest-auth` Bug Fix documentation)
+
+- **Issue:** New comments not triggering a refresh to display updated rating averages.
+
+  - **Resolution:** Implemented mechanism to refresh rating averages upon submitting a new comment.
+
+- **Issue:** Improper error handling resulting in 400 response instead of displaying validation errors for comments.
+
+  - **Resolution:** Updated error handling to correctly display non-field errors in comment submissions.
+
+- **Issue:** Encountering a 401 error.
+
+  - **Resolution:** Resolved the issue by implementing token refresh mechanism.
+
+- **Issue:** Application crashing when uploading invalid images during new post creation.
+  - **Resolution:** Addressed the problem causing a 500 error during image upload validation. The issue stemmed from a KeyError in the backend comment serializer.
+
+### Unfixed Bugs
+
+- No unfixed bugs from developer side
+- Lighthouse validation for few pages pending due to auto refresh back to home page
+- Unable to login and sign up in some devices which is a known bug and can be ignored
+- Follow/Unfollow bug not fixed
+- New comments not triggering a refresh to display updated rating averages not fixed

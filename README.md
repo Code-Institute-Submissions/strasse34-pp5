@@ -1,11 +1,86 @@
-extra packages I used
+# Ride Review
 
-npm install --save @fortawesome/fontawesome-svg-core
-npm install --save @fortawesome/free-solid-svg-icons
-npm install --save @fortawesome/free-regular-svg-icons
-npm install --save @fortawesome/react-fontawesome
+Developer: Reza Mirzaie
 
-# About
+![Mockup image](docs/responsive.png)
+
+[View live website](https://ride-review-63e228ade7d7.herokuapp.com/)
+
+## Table of Contents
+
+- [About](#about)
+- [Project Goals](#project-goals)
+  - [User Goals](#user-goals)
+- [User Experience](#user-experience)
+  - [Target Audience](#target-audience)
+  - [User Stories](#user-stories)
+    - [Profile Page](#profile-page)
+    - [Navigation and Authentication](#navigation-and-authentication)
+    - [Adding and Liking Posts](#adding-and-liking-posts)
+    - [Post Page](#post-page)
+    - [The Posts Page](#the-posts-page)
+- [Wireframes](#wireframes)
+- [Technologies Used](#technologies-used)
+  - [Languages](#languages)
+  - [Libraries, frameworks and dependencies](#libraries-frameworks-and-dependencies)
+  - [Tools & Programs](#tools--programs)
+- [Agile design](#agile-design)
+  - [About](#about-1)
+  - [User Story Template](#user-story-template)
+  - [Kanban Board](#kanban-board)
+  - [Moscow Prioritisation](#moscow-prioritisation)
+  - [Milestones](#milestones)
+- [Design](#design)
+  - [Colours](#colours)
+  - [Fonts](#fonts)
+- [Project Structure](#project-structure)
+  - [Front-End](#front-end)
+    - [React](#react)
+  - [Back-End API](#back-end-api)
+    - [Django REST Framework](#django-rest-framework)
+- [Features](#features)
+  - [Implemented Features](#implemented-features)
+    - [Navigation(Navbar)](#navigationnavbar)
+    - [Sign Up Page](#sign-up-page)
+    - [Sign In Page](#sign-in-page)
+    - [HomePage](#homepage)
+      - [Popular Profiles](#popular-profiles)
+      - [Posts Page](#posts-page)
+      - [Search-bar](#search-bar)
+    - [Feed Page](#feed-page)
+    - [Liked Page](#liked-page)
+    - [post Detail Page](#post-detail-page)
+    - [post Create Page](#post-create-page)
+    - [post Edit Page](#post-edit-page)
+    - [Profile Page](#profile-page-1)
+    - [Profile Edit Page](#profile-edit-page)
+    - [Change Username Page](#change-username-page)
+    - [Change Password Page](#change-password-page)
+    - [Page Not Found](#page-not-found)
+  - [Features to be Implemented](#features-to-be-implemented)
+- [Validation](#validation)
+  - [CSS](#css)
+  - [Html](#html)
+  - [Lighthouse](#lighthouse)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  - [Deploying the website in Heroko](#deploying-the-website-in-heroko)
+    - [Login or create an account at Heroku](#login-or-create-an-account-at-heroku)
+    - [Creating an app](#creating-an-app)
+    - [Open Deploy Tab](#open-deploy-tab)
+      - [Choose deployment method](#choose-deployment-method)
+      - [Connect to Github](#connect-to-github)
+      - [Automatic and Manual deploy](#automatic-and-manual-deploy)
+      - [Deployment](#deployment-1)
+    - [Forking the GitHub Repository](#forking-the-github-repository)
+    - [Cloning the repository in GitHub](#cloning-the-repository-in-github)
+- [Credits](#credits)
+  - [Images](#images)
+  - [Code](#code)
+- [Thank You](#thank-you)
+
+
+## About
 
 The Ride Review project aims to provide users with a platform to share their experiences and reviews of various rides with cars. Leveraging modern web technologies and React components, Ride Review offers an intuitive interface for users to create, browse, and interact with ride reviews. Whether it's sharing insights on a recent road trip or rating the comfort of a new car model, Ride Review empowers users to contribute to a community-driven database of car reviews. With its user-friendly design and robust features, Ride Review brings together enthusiasts, commuters, and travelers alike to exchange valuable information and make informed decisions about their rides.
 
@@ -179,7 +254,6 @@ The key functionality aspects:
 - Validation:
   - [WC3 Validator](https://validator.w3.org/) was used to validate the html
   - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/) was used to validate the css
-  - [ESLint](https://eslint.org/) used to validate JSX code
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) used to validate performance, accessibility, best practice and SEO of the app
 
 ##### Back to [top](#table-of-contents)
@@ -656,23 +730,91 @@ The API for this Front-End application was built with the Django REST Framework.
 </details>
 
 <details><summary>Edit Post Desktop-screen</summary>
-<img src="docs/lighthouse/lh-eventedit-desktop.png" >
+<img src="docs/validation/edit-post-desk.png" >
 </details>
 
 <details><summary>Edit Post Mobile-screen</summary>
-<img src="docs/lighthouse/lh-eventedit-mob.png" >
+<img src="docs/validation/edit-post-mobile.png" >
 </details>
-
-<details><summary>PageNotFound Desktop-screen</summary>
-<img src="docs/lighthouse/lh-404-desktop.png" >
-</details>
-
-<details><summary>PageNotFound Mobile-screen</summary>
-<img src="docs/lighthouse/lh-404-mob.png" >
-</details>
-
-
 
 ## Testing
 
-- Testing of the website can be [seen here](https://github.com/Sinha5714/humanitas-events-pp5/blob/main/TESTING.md)
+- Testing of the website can be [seen here](https://github.com/strasse34/pp5/blob/main/TESTING.md)
+
+## Deployment
+
+### Deploying the website in Heroko
+
+- Before deploying in Heroku following files were created:
+  1. env.py : stores confidential data eg. API keys, passwords etc.
+
+2. Procfile : Very important for deployment and must be added with capital P
+
+3. Requirements.txt: This must be updated for deployment in Heroku. It stores data of libraries used for project
+
+- The website was deployed to Heroko using following steps:
+
+#### Login or create an account at Heroku
+
+- Make an account in Heroko and login
+
+#### Creating an app
+
+- Create new app in the top right of the screen and add an app name.
+- Select region
+- Then click "create app".
+
+#### Open Deploy Tab
+
+##### Choose deployment method
+
+- Connect GITHUB
+- Login if prompted
+
+##### Connect to Github
+
+- Choose repositories you want to connect
+- Click "Connect"
+
+##### Automatic and Manual deploy
+
+- Choose a method to deploy
+- After Deploy is clicked it will install various file
+
+##### Deployment
+
+- Project was deployed in Heroku
+
+### Forking the GitHub Repository
+
+1. Go to the GitHub repository
+2. Click on Fork button in top right corner
+3. You will then have a copy of the repository in your own GitHub account.
+4. [GitHub Repository](https://github.com/strasse34/pp5)
+
+### Cloning the repository in GitHub
+
+1. Visit the GitHub page of the website's repository
+2. Click the “Clone” button on top of the page
+3. Click on “HTTPS”
+4. Click on the copy button next to the link to copy it
+5. Open your IDE
+6. Type `git clone <copied URL>` into the terminal
+
+## Credits
+
+### Images
+
+- The image for event posted were taken from [Pexels](https://www.pexels.com/)
+- The image for no results and upload were taken from Code Institute walkthrough project [Moments](https://github.com/Code-Institute-Solutions/moments)
+- The car images for posts were taken from different free picture services like Pinterest [Pinterest](https://www.pinterest.de/) and [Pixby](https://pixabay.com/)
+
+### Code
+
+- The code was written with the help of Code Institute walkthrough project [Moments](https://github.com/Code-Institute-Solutions/moments)
+
+- For making rating stars I used different online free resources like YouTube.
+
+## Thank You
+
+- to Code Institute, tutur team and Slack community for helping me when I was getting stuck with some challenges.
