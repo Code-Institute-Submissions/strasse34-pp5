@@ -51,7 +51,9 @@ function SignInForm() {
   };
 
   return (
-    <Row className={styles.Row}>
+    <Row
+      className={`${styles.Row} justify-content-center align-items-center md-mt-5`}
+    >
       <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} p-4 `}>
           <h1 className={styles.Header}>sign in</h1>
