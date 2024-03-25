@@ -133,6 +133,7 @@ function PostEditForm() {
           name="model"
           value={model}
           onChange={handleChange}
+          placeholder="model"
         />
       </Form.Group>
       {errors.model?.map((message, idx) => (
@@ -141,7 +142,7 @@ function PostEditForm() {
         </Alert>
       ))}
       <Form.Group>
-        <Form.Label>Brand</Form.Label>
+        <Form.Label>Production</Form.Label>
         <Form.Control
           as="select"
           name="production"
@@ -163,6 +164,7 @@ function PostEditForm() {
           name="other_details"
           value={other_details}
           onChange={handleChange}
+          placeholder="other details"
         />
       </Form.Group>
       {errors.other_details?.map((message, idx) => (
@@ -178,6 +180,7 @@ function PostEditForm() {
           name="my_experience"
           value={my_experience}
           onChange={handleChange}
+          placeholder="my experience ..."
         />
       </Form.Group>
       {errors.my_experience?.map((message, idx) => (
