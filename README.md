@@ -355,13 +355,11 @@ The API for this Front-End application was built with the Django REST Framework.
   - Profile: This shows the user avatar and opens the user's profile page
 - Feature is fully responsive and on smaller screen sizes it coverts into a 'Hamburger menu'
 
-<details><summary>See Nav-bar</summary>
-
-![Navbar before signin](docs/readme/navbar-large.png)
-![Navbar before signin - smaller device](docs/readme/navbar-small.png)
-![Navbar after signin](docs/readme/navbar-user-large.png)
-![Navbar after signin - smaller device](docs/readme/navbar-user-small.png)
-
+<details><summary>See Nav-bar logged out</summary>
+![Navbar logged out](docs/readme/navbar-large.png)
+</details>
+<details><summary>See Nav-bar logged in</summary>
+![Navbar logged in](docs/readme/navbar-large.png)
 </details>
 
 #### Sign Up Page
@@ -391,64 +389,39 @@ The API for this Front-End application was built with the Django REST Framework.
 #### HomePage
 
 - This page consists of four components as follows
-  - Popular Profiles(Our Top Organisers)
-  - Events Posts
-  - Upcoming events
+  - Popular Profiles
+  - Review Posts  
   - Search form and filters
 
-##### Popular Profiles (Our Top Organisers)
-
-- This component is displayed on top of the page.
+##### Popular Profiles 
+- This component is displayed on right side of the page in larg screen and at the top in small screen
 - This component uses filter to order all the site users by followers count
 - Logged in users can follow and unfollow users from here as well
 - User can click on these profiles avatar and see profile page of them
-- User Stories covered: 21, 23
 
-<details><summary>See Top Organisers Section</summary>
+##### Posts
 
-![Top Organisers](docs/readme/popular.png)
-![Top Organisers-small devices](docs/readme/popular-small.png)
-
-</details>
-
-##### Events Posted
-
-- All events posted by users and organisers are displayed here.
-- This component has infinite scroll functionality for user to scroll to view events posted and do not have to click for going to next page
-- The event posted is in form of a card and displays following:
-  - Event organiser avatar
-  - Image of event
-  - Title, content and date of evennt starting and ending
-  - Categories and sub-categories
-  - Intersted, comments and attending counts
-  - Logged in user and not event owner can show interest and add his number in attendance list
+- All posts created by users and profiles are displayed here.
+- This component has infinite scroll functionality for user to scroll to view posts created and do not have to click for going to next page
+- The post created is in form of a card and displays following:
+  - post owener avatar
+  - Image of post
+  - Car brand, model, other detaisl, production year and post owner experience 
+  - likes, comments and rating average
+  - Logged in user and not post owner can show interest and add his number in attendance list
 - User Stories covered: 5, 10, 11, 12, 13
 
-<details><summary>See Event Section</summary>
+<details><summary>See post Section</summary>
 
-![Event](docs/readme/events.png)
-
-</details>
-
-##### Upcoming Events
-
-- This component consists of events which has been upcoming in future
-- User can click on the title and open the events detail page
-- User Stories covered: 6, 22
-
-<details><summary>See UpComing events Section</summary>
-
-![UpComing Event](docs/readme/upcoming.png)
-![UpComing Event -small devices](docs/readme/upcoming-small.png)
+![post](docs/readme/posts.png)
 
 </details>
+
 
 ##### Search form and filters
 
-- This component is provided for user to search all events easily by their title, date, category and sub-category.
-- User can also type other user's name and see all events posted by them
-- This component has a search bar for user to type and search and also filter buttons for categories and sub-categories for better user interaction
-- User Stories covered: 27
+- This component is provided for user to search all posts easily by their brand, model, other detaisl and production year
+- User can also type other user's name and see all posts posted by them
 
 <details><summary>See Search form and filters Section</summary>
 
@@ -458,9 +431,8 @@ The API for this Front-End application was built with the Django REST Framework.
 
 #### Feed Page
 
-- The feed page looks identical to the homepage, only the Events Posts component changes.
-- In this page all the events displayed by filtering the events posted by the users logged in user is following
-- User Stories covered: 21
+- The feed page looks identical to the homepage, only the posts component changes.
+- In this page all the posts displayed by filtering the posts created by the users logged in user is following
 
 <details><summary>See Feed Page</summary>
 
@@ -468,65 +440,63 @@ The API for this Front-End application was built with the Django REST Framework.
 
 </details>
 
-#### Interested Page
+#### Liked Page
 
-- The interested page looks identical to the homepage, only the Events Posts component changes.
-- In this page all the events displayed by filtering logged in user is has shown interest to
-- User Stories covered: 10
+- The liked page looks identical to the homepage, only the posts component changes.
+- In this page all the posts displayed by filtering logged in user is has shown interest to
 
-<details><summary>See Interested Page</summary>
+<details><summary>See Liked Page</summary>
 
-![Interested](docs/readme/interested.png)
-
-</details>
-
-#### Event Detail Page
-
-- This page consist a detail view of event posted by users
-- Users can click on event image in event card to open this page
-- Logged in users can post comments on this page on events and interact with other users
-- Event owner can edit and delete the event
-- User can read full content about what the event is about
-- User Stories covered: 6, 7, 8, 9, 10, 11, 12, 13
-
-<details><summary>See Event Detail Page</summary>
-
-![Event Detail Page](docs/readme/eventdetail.png)
-![Event Detail Page- event owner](docs/readme/eventownerdetail.png)
+![Liked](docs/readme/interested.png)
 
 </details>
 
-#### Event Create Page
+#### post Detail Page
 
-- This page consists of event create form where user can create an event
-- Logged in user can open this page by clicking on add event link on Navbar
-- User Stories covered: 14
+- This page consist a detail view of post created by users
+- Users can click on post image in post card to open this page
+- Logged in users can post comments on this page on posts and interact with other users
+- post owner can edit and delete the post
+- User can read full content about what the post is about
 
-<details><summary>See Event Create Page</summary>
 
-![Event Create Page](docs/readme/eventcreate.png)
-![Event Create Page-smaller devices](docs/readme/eventcreate-small.png)
+<details><summary>See post Detail Page</summary>
+
+![post Detail Page](docs/readme/postdetail.png)
+![post Detail Page- post owner](docs/readme/postownerdetail.png)
 
 </details>
 
-#### Event Edit Page
+#### post Create Page
 
-- This page consists of event form where event owner can edit the data of the event
-- Event owner can access this page by clicking on edit icon in event detail page
+- This page consists of post create form where user can create an post
+- Logged in user can open this page by clicking on add reivew link on Navbar
+
+<details><summary>See post Create Page</summary>
+
+![post Create Page](docs/readme/postcreate.png)
+![post Create Page-smaller devices](docs/readme/postcreate-small.png)
+
+</details>
+
+#### post Edit Page
+
+- This page consists of post form where post owner can edit the data of the post
+- post owner can access this page by clicking on edit icon in post detail page
 - After successful update user is displayed successful message
 - User Stories covered: 15
 
-<details><summary>See Event Edit Page</summary>
+<details><summary>See post Edit Page</summary>
 
-![Event Edit Page](docs/readme/eventedit-large.png)
-![Event Edit Page-smaller devices](docs/readme/event-edit-small.png)
-![Event Edit success Modal](docs/readme/eventedit-success.png)
+![post Edit Page](docs/readme/postedit-large.png)
+![post Edit Page-smaller devices](docs/readme/post-edit-small.png)
+![post Edit success Modal](docs/readme/postedit-success.png)
 
 </details>
 
 #### Profile Page
 
-- This page consists the detail of user including their bio, following and followers counts and events posted by that user
+- This page consists the detail of user including their bio, following and followers counts and posts posted by that user
 - User can access other's profile by clicking on avatar of other users
 - Logged in user can access this page by clicking on their avatar image in Navbar
 - User Stories covered: 17
@@ -535,7 +505,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 ![Profile Page](docs/readme/profilepage.png)
 ![Profile Page-smaller device](docs/readme/profilepage-small.png)
-![Profile Page- events](docs/readme/profileevents.png)
+![Profile Page- posts](docs/readme/profileposts.png)
 ![Profile page- loggedin user](docs/readme/owner-profilepage.png)
 
 </details>
@@ -598,7 +568,6 @@ The API for this Front-End application was built with the Django REST Framework.
 
 ### Features to be Implemented
 
-- A validation form for event organisers to add a criteria form to selct users willing to attend an event
-- A contact form for user to ask if they have some problem with authentication or asking about individual event
-- Deletion of profile if user no longet to continue with the website
+- Reply feature to the comment lists to provide chances to the users to reply a comment.
+- Filter option feature to order posts/cars according thier ratings.
 
