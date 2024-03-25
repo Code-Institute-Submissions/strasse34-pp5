@@ -23,7 +23,7 @@ const Profile = (props) => {
     >
       <div>
         <Link className="align-self-center" to={`/profiles/${id}`}>
-          <Avatar src={image} height={imageSize} alt={image} />
+          <Avatar src={image} height={imageSize} alt="avatar image" />
         </Link>
       </div>
       <div className={`mx-2 ${styles.WordBreak}`}>
