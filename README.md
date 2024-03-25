@@ -587,7 +587,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse/) for performance, accessibility, progressive web apps, SEO analysis of the project code here are the results:
 
-- While conducting lighthouse validation of profile edit page, username and password change page lighthouse was refreshing and testing the home page so I have not included the test results
+- While conducting lighthouse validation of profile edit page, commenting, username and password change page lighthouse was refreshing and testing the home page so I have not included the test results
 
 - Note: Lighthouse results of testing the project may be inconsistent due to the functionality of user-uploaded images,Hosting project on Heroku may affected the results (server response time, caching, and network latency). Also additional external libraries reduce the response of the website. I will try improve in further projects to acheive better.
 
