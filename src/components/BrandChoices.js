@@ -1,5 +1,6 @@
 import React from "react";
 
+// provides choices for brand input field in PostCreateForm
 const BrandChoices = () => {
   const theBrands = [
     { value: "", label: "Select a brand", disabled: true },

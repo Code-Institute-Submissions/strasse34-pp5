@@ -1,6 +1,7 @@
 import { axiosReq } from "../api/axiosDefaults";
 import jwtDecode from "jwt-decode";
 
+// Function to fetch more data for infinite scrolling
 export const fetchMoreData = async (resource, setResource) => {
   try {
     const { data } = await axiosReq.get(resource.next);
@@ -52,19 +53,3 @@ export const shouldRefreshToken = () => {
 export const removeTokenTimestamp = () => {
   localStorage.removeItem("refreshTokenTimestamp");
 };
-
-// export const fetchUpdatedRatingAverage = async (id, setPost) => {
-//   try {
-//     const { data } = await axiosReq.get(`/posts/${id}/`);
-//     setPost((prevPost) => ({
-//       ...prevPost,
-//       results: prevPost.results.map((post) => {
-//         return post.id === id
-//           ? { ...post, ratings_average: data.ratings_average }
-//           : post;
-//       }),
-//     }));
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };

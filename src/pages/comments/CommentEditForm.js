@@ -5,8 +5,9 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 
 import EditStars from "../../components/EditStars";
 import { axiosRes } from "../../api/axiosDefaults";
-import { FormGroup } from "react-bootstrap";
+import FormGroup from "react-bootstrap/FormGroup";
 
+// create edit form for comments
 function CommentEditForm(props) {
   const { id, content, stars, setShowEditForm, setComments } = props;
   const [formContent, setFormContent] = useState(content);
@@ -41,9 +42,7 @@ function CommentEditForm(props) {
         }),
       }));
       setShowEditForm(false);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

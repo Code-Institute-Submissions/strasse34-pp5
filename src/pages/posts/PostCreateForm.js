@@ -19,6 +19,7 @@ import ProductionYearChoices from "../../components/ProductionYearChoices";
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+// create form for new post
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
@@ -69,7 +70,6 @@ function PostCreateForm() {
       const { data } = await axiosReq.post("/posts/", formData);
       history.push(`/posts/${data.id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

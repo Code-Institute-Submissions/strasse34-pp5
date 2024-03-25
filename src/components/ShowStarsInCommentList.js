@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../styles/Comment.module.css";
 
+// provides each user ratings as stars in comments list
 const ShowStarsInCommentList = ({ value }) => {
   const filledStars = parseFloat(value);
   const stars = [];

@@ -8,9 +8,9 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import Avatar from "../../components/Avatar";
 import StarRating from "../../components/StarRating";
 import { axiosRes } from "../../api/axiosDefaults";
-import { FormGroup } from "react-bootstrap";
-// import { fetchUpdatedRatingAverage } from "../../utils/utils";
+import FormGroup from "react-bootstrap/FormGroup";
 
+// creates form for new comment
 function CommentCreateForm(props) {
   const { post, setPost, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
@@ -47,13 +47,10 @@ function CommentCreateForm(props) {
       }));
       setContent("");
       setStars(0);
-      console.log({ content, post, stars });
-      // await fetchUpdatedRatingAverage(post.id, setPost);
     } catch (err) {
       if (err.response?.status === 400) {
         if (err.response?.data && err.response.data.non_field_errors) {
           setNonFieldErrors(err.response.data.non_field_errors);
-          console.log(err.response.data.non_field_errors);
         }
       }
     }

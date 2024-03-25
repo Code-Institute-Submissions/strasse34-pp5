@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+// Custom hook to toggle state based on click outside a component
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);

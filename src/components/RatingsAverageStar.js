@@ -1,5 +1,6 @@
 import React from "react";
 
+// provides stars based display for ratings_average in Post.js
 const RatingsAverageStar = ({ value }) => {
   const generateStars = () => {
     const stars = [];

@@ -1,7 +1,7 @@
 import React from "react";
 
+// provides choices for production input field in PostCreateForm
 const ProductionYearChoices = () => {
-  // Generate an array of production years from 1990 till 2024
   const productionYears = Array.from(
     { length: 2024 - 1990 + 1 },
     (_, index) => 2024 - index

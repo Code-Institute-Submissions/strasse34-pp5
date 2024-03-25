@@ -11,13 +11,14 @@ import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
-import { Image } from "react-bootstrap";
+import Image from "react-bootstrap/Image";
 import BrandChoices from "../../components/BrandChoices";
 import ProductionYearChoices from "../../components/ProductionYearChoices";
 
 import { useHistory, useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
+// create edit form for a post
 function PostEditForm() {
   const [errors, setErrors] = useState({});
 
@@ -60,9 +61,7 @@ function PostEditForm() {
               image,
             })
           : history.push("/");
-      } catch (err) {
-        console.log(err);
-      }
+      } catch (err) {}
     };
 
     handleMount();
@@ -103,7 +102,6 @@ function PostEditForm() {
       await axiosReq.put(`/posts/${id}/`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
