@@ -592,67 +592,67 @@ The API for this Front-End application was built with the Django REST Framework.
 - Note: Lighthouse results of testing the project may be inconsistent due to the functionality of user-uploaded images,Hosting project on Heroku may affected the results (server response time, caching, and network latency). Also additional external libraries reduce the response of the website. I will try improve in further projects to acheive better.
 
 <details><summary>Home Desktop-screen</summary>
-<img src="docs/lighthouse/lh-home-desktop.png" >
+<img src="docs/validation/home-loggedout-desk.png" >
 
 </details>
 <details><summary>Home Mobile-screen</summary>
-<img src="docs/lighthouse/lh-home-mob.png" >
+<img src="docs/validation/home-loggedout-mobile.png" >
 </details>
 
 <details><summary>SignIn page Desktop-screen</summary>
-<img src="docs/lighthouse/lh-signin-desktop.png" >
+<img src="docs/validation/signin-desk.png" >
 </details>
 
 <details><summary>SignIn page Mobile-screen</summary>
-<img src="docs/lighthouse/lh-signin-mob.png" >
+<img src="docs/validation/signin-mobile.png" >
 </details>
 
 <details><summary>Sign up page Desktop-screen</summary>
-<img src="docs/lighthouse/lh-signup-desktop.png" >
+<img src="docs/validation/signup-desk.png" >
 </details>
 
 <details><summary>Sign up page Mobile-screen</summary>
-<img src="docs/lighthouse/lh-signup-mob.png" >
+<img src="docs/validation/signup-mobile.png" >
 </details>
 
 <details><summary>Feed Desktop-screen</summary>
-<img src="docs/lighthouse/lh-feed-desktop.png" >
+<img src="docs/validation/feed-desk.png" >
 </details>
 
 <details><summary>Feed Mobile-screen</summary>
-<img src="docs/lighthouse/lh-feed-mob.png" >
+<img src="docs/validation/feed-mobile.png" >
 </details>
 
 <details><summary>Liked Desktop-screen</summary>
-<img src="docs/lighthouse/lh-interested-desktop.png" >
+<img src="docs/validation/liked-desk.png" >
 </details>
 
 <details><summary>Liked Mobile-screen</summary>
-<img src="docs/lighthouse/lh-interested-mob.png" >
+<img src="docs/validation/liked-mobile.png" >
 </details>
 
 <details><summary>Profile page Desktop-screen</summary>
-<img src="docs/lighthouse/lh-profile-desktop.png" >
+<img src="docs/validation/profile-loggedout-desk.png" >
 </details>
 
 <details><summary>Profile page Mobile-screen</summary>
-<img src="docs/lighthouse/lh-profile-mob.png" >
+<img src="docs/validation/profile-loggedout-mobile.png" >
 </details>
 
 <details><summary>Post Detail Desktop-screen</summary>
-<img src="docs/lighthouse/lh-eventdetail-desktop.png" >
+<img src="docs/validation/postdetail-loggedout-desk.png" >
 </details>
 
 <details><summary>Post Detail Mobile-screen</summary>
-<img src="docs/lighthouse/lh-eventdetail-mob.png" >
+<img src="docs/validation/postdetail-loggedout-mobile.png" >
 </details>
 
 <details><summary>Create Post Desktop-screen</summary>
-<img src="docs/lighthouse/lh-addevent-desktop.png" >
+<img src="docs/validation/create-post-desk.png" >
 </details>
 
 <details><summary>Create Post Mobile-screen</summary>
-<img src="docs/lighthouse/lh-addevent-mob.png" >
+<img src="docs/validation/create-post-mobile.png" >
 </details>
 
 <details><summary>Edit Post Desktop-screen</summary>
