@@ -2,15 +2,14 @@
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   min-height: 1px;
-  padding-top: 5px;  
-  padding-bottom: 5px;  
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 /* body for post-bar and coment */
 .CardBody {
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   min-height: 1px;
-  padding: auto;  
   padding-top: 0;
 }
 

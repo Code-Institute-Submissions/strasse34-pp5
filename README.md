@@ -356,10 +356,10 @@ The API for this Front-End application was built with the Django REST Framework.
 - Feature is fully responsive and on smaller screen sizes it coverts into a 'Hamburger menu'
 
 <details><summary>See Nav-bar logged out</summary>
-![Navbar logged out](docs/readme/navbar-large.png)
+![Navbar logged out](docs/features/navbar-loggedout.png)
 </details>
 <details><summary>See Nav-bar logged in</summary>
-![Navbar logged in](docs/readme/navbar-large.png)
+![Navbar logged in](docs/features/navbar-loggedin.png)
 </details>
 
 #### Sign Up Page
@@ -370,7 +370,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 <details><summary>See Sign Up Page</summary>
 
-![Signup Page](docs/readme/signup.png)
+![Signup Page](docs/features/signup.png)
 
 </details>
 
@@ -382,7 +382,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 <details><summary>See Sign In Page</summary>
 
-![Signin Page](docs/readme/signin.png)
+![Signin Page](docs/features/signin.png)
 
 </details>
 
@@ -390,42 +390,41 @@ The API for this Front-End application was built with the Django REST Framework.
 
 - This page consists of four components as follows
   - Popular Profiles
-  - Review Posts  
+  - Review Posts
   - Search form and filters
 
-##### Popular Profiles 
+<details><summary>See HomePage logged out</summary>
+
+![HomePage logged out](docs/features/home-loggedout.png)
+
+</details>
+<details><summary>See HomePage logged in</summary>
+
+![HomePage logged in](docs/features/home-loggedin.png)
+
+</details>
+
+##### Popular Profiles
+
 - This component is displayed on right side of the page in larg screen and at the top in small screen
 - This component uses filter to order all the site users by followers count
 - Logged in users can follow and unfollow users from here as well
 - User can click on these profiles avatar and see profile page of them
 
-##### Posts
+##### Posts Page
 
-- All posts created by users and profiles are displayed here.
+- All posts created by users are displayed here.
 - This component has infinite scroll functionality for user to scroll to view posts created and do not have to click for going to next page
 - The post created is in form of a card and displays following:
   - post owener avatar
   - Image of post
-  - Car brand, model, other detaisl, production year and post owner experience 
+  - Car brand, model, other detaisl, production year and post owner experience
   - likes, comments and rating average
   - Logged in user and not post owner can show interest and add his number in attendance list
-- User Stories covered: 5, 10, 11, 12, 13
 
-<details><summary>See post Section</summary>
+<details><summary>See posts page</summary>
 
-![post](docs/readme/posts.png)
-
-</details>
-
-
-##### Search form and filters
-
-- This component is provided for user to search all posts easily by their brand, model, other detaisl and production year
-- User can also type other user's name and see all posts posted by them
-
-<details><summary>See Search form and filters Section</summary>
-
-![Search form and filters](docs/readme/search-filters.png)
+![posts page](docs/features/posts-page.png)
 
 </details>
 
@@ -433,21 +432,22 @@ The API for this Front-End application was built with the Django REST Framework.
 
 - The feed page looks identical to the homepage, only the posts component changes.
 - In this page all the posts displayed by filtering the posts created by the users logged in user is following
-
-<details><summary>See Feed Page</summary>
-
-![Feed](docs/readme/feed.png)
-
-</details>
+- It is the same as posts page but Feed icon is active
 
 #### Liked Page
 
-- The liked page looks identical to the homepage, only the posts component changes.
+- The liked page looks identical to the homepage, only the posts component changes
 - In this page all the posts displayed by filtering logged in user is has shown interest to
+- It is the same as posts page but Liked icon is active
 
-<details><summary>See Liked Page</summary>
+##### Search-bar
 
-![Liked](docs/readme/interested.png)
+- This component is provided for user to search all posts easily by their brand, model, other detaisl and production year
+- User can also type other user's name and see all posts posted by them
+
+<details><summary>See Search form and filters Section</summary>
+
+![Search form and filters](docs/features/searchbar.png)
 
 </details>
 
@@ -459,23 +459,21 @@ The API for this Front-End application was built with the Django REST Framework.
 - post owner can edit and delete the post
 - User can read full content about what the post is about
 
-
 <details><summary>See post Detail Page</summary>
 
-![post Detail Page](docs/readme/postdetail.png)
-![post Detail Page- post owner](docs/readme/postownerdetail.png)
+![post Detail Page](docs/features/postpage-loggedout.png)
+![post Detail Page- post owner](docs/features/pastpage.png)
 
 </details>
 
 #### post Create Page
 
 - This page consists of post create form where user can create an post
-- Logged in user can open this page by clicking on add reivew link on Navbar
+- Logged in user can open this page by clicking on 'add reivew' link on Navbar
 
 <details><summary>See post Create Page</summary>
 
-![post Create Page](docs/readme/postcreate.png)
-![post Create Page-smaller devices](docs/readme/postcreate-small.png)
+![post Create Page](docs/features/addpost.png)
 
 </details>
 
@@ -484,13 +482,10 @@ The API for this Front-End application was built with the Django REST Framework.
 - This page consists of post form where post owner can edit the data of the post
 - post owner can access this page by clicking on edit icon in post detail page
 - After successful update user is displayed successful message
-- User Stories covered: 15
 
 <details><summary>See post Edit Page</summary>
 
-![post Edit Page](docs/readme/postedit-large.png)
-![post Edit Page-smaller devices](docs/readme/post-edit-small.png)
-![post Edit success Modal](docs/readme/postedit-success.png)
+![post Edit Page](docs/features/post-edit.png)
 
 </details>
 
@@ -499,15 +494,13 @@ The API for this Front-End application was built with the Django REST Framework.
 - This page consists the detail of user including their bio, following and followers counts and posts posted by that user
 - User can access other's profile by clicking on avatar of other users
 - Logged in user can access this page by clicking on their avatar image in Navbar
-- User Stories covered: 17
 
-<details><summary>See Profile Page</summary>
+<details><summary>See Profile Page Logged out</summary>
+![Profile Page logged out](docs/features/profilepage-loggedout.png)
+</details>
 
-![Profile Page](docs/readme/profilepage.png)
-![Profile Page-smaller device](docs/readme/profilepage-small.png)
-![Profile Page- posts](docs/readme/profileposts.png)
-![Profile page- loggedin user](docs/readme/owner-profilepage.png)
-
+<details><summary>See Profile Page Logged in</summary>
+![Profile Page logged out](docs/features/profilepage-loggedin.png)
 </details>
 
 #### Profile Edit Page
@@ -515,13 +508,10 @@ The API for this Front-End application was built with the Django REST Framework.
 - This page consists of profile form where loggedin user can update their profile data
 - Profile owner can access this page by clicking on edit profile in their profile page
 - After successful update user is displayed successful message
-- User Stories covered: 18
 
 <details><summary>See Profile Edit Page</summary>
 
-![Profile Edit Page](docs/readme/profiledit.png)
-![Profile Edit Page-smaller devices](docs/readme/profileedit-small.png)
-![Profile Edit success Modal](docs/readme/profiledit-success.png)
+![Profile Edit Page](docs/features/profile-edit.png)
 
 </details>
 
@@ -530,26 +520,23 @@ The API for this Front-End application was built with the Django REST Framework.
 - This page consists of username change form where loggedin user can update their username
 - Profile owner can access this page by clicking on change username in their profile page
 - After successful update user is displayed successful message
-- User Stories covered: 19
 
 <details><summary>See Change Username Page</summary>
 
-![Change username Page](docs/readme/usernamedit.png)
-![Change username success Modal](docs/readme/username-success.png)
+![Change username Page](docs/features/profile-username.png)
 
 </details>
+
 
 #### Change Password Page
 
 - This page consists of username change form where loggedin user can update their password
 - Profile owner can access this page by clicking on change password in their profile page
 - After successful update user is displayed successful message
-- User Stories covered: 20
 
 <details><summary>See Change Password Page</summary>
 
-![Change Password Page](docs/readme/passwordediit.png)
-![Change password success Modal](docs/readme/password-success.png)
+![Change Password Page](docs/features/profile-password.png)
 
 </details>
 
@@ -562,7 +549,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 <details><summary>PageNotFound Page</summary>
 
-![PageNotFound Page](docs/readme/pagenotfound.png)
+![PageNotFound Page](docs/features/page-not-found.png)
 
 </details>
 
@@ -571,3 +558,136 @@ The API for this Front-End application was built with the Django REST Framework.
 - Reply feature to the comment lists to provide chances to the users to reply a comment.
 - Filter option feature to order posts/cars according thier ratings.
 
+## Validation
+
+### CSS
+
+- [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)was used to validate the css in the project.
+- Validator with no errors.
+- The deployed app was passed as url input for validation
+
+<details><summary>Jigsaw validation using url</summary>
+<img src="docs/readme/css-validation.png">
+</details>
+
+### Html
+
+- [WC3 Validator](https://validator.w3.org/) was used to validate the html in the project
+- The deployed app was passed as url input for validation
+- No errors were found
+- Note : info were provided regarding standard Meta code
+
+<details><summary>HTML validation screenshot</summary>
+<img src="docs/readme/html-validate.png"  >
+</details>
+<details><summary>No error screenshot</summary>
+<img src="docs/readme/htmlvalidator.png" >
+</details>
+
+### Lighthouse
+
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse/) for performance, accessibility, progressive web apps, SEO analysis of the project code here are the results:
+
+- While conducting lighthouse validation of profile edit page, username and password change page lighthouse was refreshing and testing the home page so I have not included the test results
+
+- Note: Lighthouse results of testing the project may be inconsistent due to the functionality of user-uploaded images,Hosting project on Heroku may affected the results (server response time, caching, and network latency). Also additional external libraries reduce the response of the website. I will try improve in further projects to acheive better.
+
+<details><summary>Home Desktop-screen</summary>
+<img src="docs/lighthouse/lh-home-desktop.png" >
+
+</details>
+<details><summary>Home Mobile-screen</summary>
+<img src="docs/lighthouse/lh-home-mob.png" >
+</details>
+
+<details><summary>SignIn page Desktop-screen</summary>
+<img src="docs/lighthouse/lh-signin-desktop.png" >
+</details>
+
+<details><summary>SignIn page Mobile-screen</summary>
+<img src="docs/lighthouse/lh-signin-mob.png" >
+</details>
+
+<details><summary>Sign up page Desktop-screen</summary>
+<img src="docs/lighthouse/lh-signup-desktop.png" >
+</details>
+
+<details><summary>Sign up page Mobile-screen</summary>
+<img src="docs/lighthouse/lh-signup-mob.png" >
+</details>
+
+<details><summary>Feed Desktop-screen</summary>
+<img src="docs/lighthouse/lh-feed-desktop.png" >
+</details>
+
+<details><summary>Feed Mobile-screen</summary>
+<img src="docs/lighthouse/lh-feed-mob.png" >
+</details>
+
+<details><summary>Interested Desktop-screen</summary>
+<img src="docs/lighthouse/lh-interested-desktop.png" >
+</details>
+
+<details><summary>Interested Mobile-screen</summary>
+<img src="docs/lighthouse/lh-interested-mob.png" >
+</details>
+
+<details><summary>Profile page Desktop-screen</summary>
+<img src="docs/lighthouse/lh-profile-desktop.png" >
+</details>
+
+<details><summary>Profile page Mobile-screen</summary>
+<img src="docs/lighthouse/lh-profile-mob.png" >
+</details>
+
+<details><summary>Event Detail Desktop-screen</summary>
+<img src="docs/lighthouse/lh-eventdetail-desktop.png" >
+</details>
+
+<details><summary>Event Detail Mobile-screen</summary>
+<img src="docs/lighthouse/lh-eventdetail-mob.png" >
+</details>
+
+<details><summary>Create event Desktop-screen</summary>
+<img src="docs/lighthouse/lh-addevent-desktop.png" >
+</details>
+
+<details><summary>Create event Mobile-screen</summary>
+<img src="docs/lighthouse/lh-addevent-mob.png" >
+</details>
+
+<details><summary>Edit event Desktop-screen</summary>
+<img src="docs/lighthouse/lh-eventedit-desktop.png" >
+</details>
+
+<details><summary>Edit event Mobile-screen</summary>
+<img src="docs/lighthouse/lh-eventedit-mob.png" >
+</details>
+
+<details><summary>PageNotFound Desktop-screen</summary>
+<img src="docs/lighthouse/lh-404-desktop.png" >
+</details>
+
+<details><summary>PageNotFound Mobile-screen</summary>
+<img src="docs/lighthouse/lh-404-mob.png" >
+</details>
+
+### ESLint Validation
+
+- The JSX code was validated using the ESLint utility.
+- The library was preinstalled in Codeanywhere IDE
+- The code was getting validated so the errors were corrected during development process
+- The library was also installed later using [ESLint website](https://eslint.org/) for final validation
+- Few errors were shown which has been documented in Bug and fixes in TESTING.md
+- No errors remained before final submission
+
+<details><summary>Inbuild ESLint permission page</summary>
+<img src="docs/readme/eslint-use.png"  >
+</details>
+<details><summary>No error screenshot</summary>
+<img src="docs/readme/eslint-noerror.png" >
+</details>
+
+## Testing
+
+- Testing of the website can be [seen here](https://github.com/Sinha5714/humanitas-events-pp5/blob/main/TESTING.md)
