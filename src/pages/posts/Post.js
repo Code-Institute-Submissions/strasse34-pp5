@@ -99,7 +99,7 @@ const Post = (props) => {
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`} aria-label="image">
-        <Card.Img src={image} alt={brand} />
+        <Card.Img src={image} alt={brand} loading="lazy" />
       </Link>
       <Card.Body className={styles.CardBody}>
         <Row className={styles.PostBar}>
