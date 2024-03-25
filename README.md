@@ -563,11 +563,15 @@ The API for this Front-End application was built with the Django REST Framework.
 ### CSS
 
 - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)was used to validate the css in the project.
-- Validator with no errors.
-- The deployed app was passed as url input for validation
+- I got 2 errors after validation as url input
+
+
+<details><summary>See Errors</summary>
+<img src="docs/validation/css.png">
+</details>
 
 <details><summary>Jigsaw validation using url</summary>
-<img src="docs/readme/css-validation.png">
+<img src="docs/validation/css.png">
 </details>
 
 ### Html
