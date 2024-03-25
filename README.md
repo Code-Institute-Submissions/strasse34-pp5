@@ -527,7 +527,6 @@ The API for this Front-End application was built with the Django REST Framework.
 
 </details>
 
-
 #### Change Password Page
 
 - This page consists of username change form where loggedin user can update their password
@@ -563,15 +562,14 @@ The API for this Front-End application was built with the Django REST Framework.
 ### CSS
 
 - [Jigsaw W3 Validator](https://jigsaw.w3.org/css-validator/)was used to validate the css in the project.
-- I got 2 errors after validation as url input
-
+- I got 2 errors after validation as url input and fixed them
 
 <details><summary>See Errors</summary>
 <img src="docs/validation/css.png">
 </details>
 
 <details><summary>Jigsaw validation using url</summary>
-<img src="docs/validation/css.png">
+<img src="docs/validation/css-noerror.png">
 </details>
 
 ### Html
@@ -582,10 +580,7 @@ The API for this Front-End application was built with the Django REST Framework.
 - Note : info were provided regarding standard Meta code
 
 <details><summary>HTML validation screenshot</summary>
-<img src="docs/readme/html-validate.png"  >
-</details>
-<details><summary>No error screenshot</summary>
-<img src="docs/readme/htmlvalidator.png" >
+<img src="docs/validation/html-validation.png"  >
 </details>
 
 ### Lighthouse
@@ -628,11 +623,11 @@ The API for this Front-End application was built with the Django REST Framework.
 <img src="docs/lighthouse/lh-feed-mob.png" >
 </details>
 
-<details><summary>Interested Desktop-screen</summary>
+<details><summary>Liked Desktop-screen</summary>
 <img src="docs/lighthouse/lh-interested-desktop.png" >
 </details>
 
-<details><summary>Interested Mobile-screen</summary>
+<details><summary>Liked Mobile-screen</summary>
 <img src="docs/lighthouse/lh-interested-mob.png" >
 </details>
 
@@ -644,27 +639,27 @@ The API for this Front-End application was built with the Django REST Framework.
 <img src="docs/lighthouse/lh-profile-mob.png" >
 </details>
 
-<details><summary>Event Detail Desktop-screen</summary>
+<details><summary>Post Detail Desktop-screen</summary>
 <img src="docs/lighthouse/lh-eventdetail-desktop.png" >
 </details>
 
-<details><summary>Event Detail Mobile-screen</summary>
+<details><summary>Post Detail Mobile-screen</summary>
 <img src="docs/lighthouse/lh-eventdetail-mob.png" >
 </details>
 
-<details><summary>Create event Desktop-screen</summary>
+<details><summary>Create Post Desktop-screen</summary>
 <img src="docs/lighthouse/lh-addevent-desktop.png" >
 </details>
 
-<details><summary>Create event Mobile-screen</summary>
+<details><summary>Create Post Mobile-screen</summary>
 <img src="docs/lighthouse/lh-addevent-mob.png" >
 </details>
 
-<details><summary>Edit event Desktop-screen</summary>
+<details><summary>Edit Post Desktop-screen</summary>
 <img src="docs/lighthouse/lh-eventedit-desktop.png" >
 </details>
 
-<details><summary>Edit event Mobile-screen</summary>
+<details><summary>Edit Post Mobile-screen</summary>
 <img src="docs/lighthouse/lh-eventedit-mob.png" >
 </details>
 
@@ -676,21 +671,7 @@ The API for this Front-End application was built with the Django REST Framework.
 <img src="docs/lighthouse/lh-404-mob.png" >
 </details>
 
-### ESLint Validation
 
-- The JSX code was validated using the ESLint utility.
-- The library was preinstalled in Codeanywhere IDE
-- The code was getting validated so the errors were corrected during development process
-- The library was also installed later using [ESLint website](https://eslint.org/) for final validation
-- Few errors were shown which has been documented in Bug and fixes in TESTING.md
-- No errors remained before final submission
-
-<details><summary>Inbuild ESLint permission page</summary>
-<img src="docs/readme/eslint-use.png"  >
-</details>
-<details><summary>No error screenshot</summary>
-<img src="docs/readme/eslint-noerror.png" >
-</details>
 
 ## Testing
 
