@@ -79,7 +79,6 @@ Developer: Reza Mirzaie
   - [Code](#code)
 - [Thank You](#thank-you)
 
-
 ## About
 
 The Ride Review project aims to provide users with a platform to share their experiences and reviews of various rides with cars. Leveraging modern web technologies and React components, Ride Review offers an intuitive interface for users to create, browse, and interact with ride reviews. Whether it's sharing insights on a recent road trip or rating the comfort of a new car model, Ride Review empowers users to contribute to a community-driven database of car reviews. With its user-friendly design and robust features, Ride Review brings together enthusiasts, commuters, and travelers alike to exchange valuable information and make informed decisions about their rides.
@@ -116,7 +115,7 @@ The key functionality aspects:
 
 #### Profile Page
 
-1. **Profile Page**: As a user, I can view other users profiles so that I can see their posts and learn more about them.
+1. **Profile Page**: As a user, I can view other users' profiles so that I can see their posts and learn more about them.
 2. **Most Followed Profiles**: As a user, I can see a list of the most followed profiles so that I can see which profiles are popular.
 3. **User Profile - User Stats**: As a user, I can view statistics about a specific user: bio, favorite car, number of posts, follows and users followed so that I can learn more about them.
 4. **Follow/Unfollow a User**: As a logged-in user, I can follow and unfollow other users so that I can see and remove posts by specific users in my posts feed.
@@ -139,7 +138,7 @@ The key functionality aspects:
 
 1. **Create Posts**: As a logged-in user, I can create posts so that I can share my experience with the world.
 2. **View a Post**: As a user, I can view the details of a single post so that I can learn more about it.
-3. **Like a Post**: As a logged-in user, I can like a post so that I can show my support for the posts that interest me.
+3. **Like a Post**: As a logged-in user, I like a post so that I can show my support for the posts that interest me.
 
 #### Post Page
 
@@ -154,7 +153,7 @@ The key functionality aspects:
 
 #### The Posts Page
 
-1. **View Most Recent Posts**: As a user, I can view all the most recent posts, ordered by most recently created first so that I am up to date with the newest content.
+1. **View Most Recent Posts**: As a user, I can view all the most recent posts, ordered by the most recently created first so that I am up to date with the newest content.
 2. **Search for Posts**: As a user, I can search for posts with keywords so that I can find the posts and user profiles I am most interested in.
 3. **View Liked Posts**: As a logged-in user, I can view the posts I liked so that I can find the posts I enjoy the most.
 4. **View Posts of Followed Users**: As a logged-in user, I can view content filtered by users I follow so that I can keep up to date with what they are posting about.
@@ -162,10 +161,10 @@ The key functionality aspects:
 
 ## Wireframes
 
-- A low-fi wireframe was build before developing the website.
+- A low-fi wireframe was built before developing the website.
 - This was done in Balsamiq Wireframes.
 - Most of the pages has same design so a basic wireframe was created for the following pages:
-- Home page also used for feed and interested page
+- Home page also used for feed and liked page
 - Add/edit page also used for add posts, edit posts and edit profile
 
 <details><summary>Home Page logged out</summary>
@@ -333,41 +332,41 @@ There were various components created and reused across this application.
 
   - Those include a loading spinner from React Bootstrap, image with source and alt attribute or a message consisting of a paragraph.
 
-- `<Avatar />` - resuable component, used to display the relevant user profile picture.
+- `<Avatar />` - reusable component, used to display the relevant user profile picture.
 
   - This component uses props which can specify the source of the image and also its size
   - This components was used in profile avatar, post owner, comment create form and comments posted
 
-- `<DropDowns />` - resuable component, used to display the three dots option button based on the required rights of the user.
+- `<DropDowns />` - reusable component, used to display the three dots option button based on the required rights of the user.
 
   - This was used for user who are authorised to make changes. For example, for user to edit and delete their own comments and user to edit their profile, change their username and password.
 
-- `<EditStars />` - resuable component, used to display editable stars while editing comments.
+- `<EditStars />` - used to display editable stars while editing comments.
 
-  - This component uses props which can get the stars value for farther process.
-  - This component was used in when user edit their ratings in while editing comment successfully.
+  - This component uses props which can get the stars value for further process.
+  - This component was used in when user edit their ratings while editing comment successfully.
 
-- `<BrandChoices />` - resuable component, used to display choices while creating new post in brand input field.
+- `<BrandChoices />` - reusable component, used to display choices while creating a new post or editing an old post in the brand input field.
 
-  - This component was used in when user select a year in production field in post create form.
+  - This component was used when user selects a year in production field in post create form commponent.
 
-- `<ProductionYearChoices />` - resuable component, used to display choices while creating new post in production input field.
+- `<ProductionYearChoices />` - reusable component, used to display choices while creating a new post or editing an old post in production input field.
 
-  - This component was used in when user select a car brand name in brand field in post create form.
+  - This component was used when user selects a car brand name in brand field in post create form component.
 
-- `<RatingsAverageStar />` - resuable component, used to reperesent rating average by stars in post component.
+- `<RatingsAverageStar />` - used to reperesent rating average by the stars in post component.
 
-  - This component was used in when a post is displayed.
+  - This component was used when a post is displayed.
 
-- `<ShowStarsInCommentList />` - resuable component, used to display rate of each user by stars in comment list.
+- `<ShowStarsInCommentList />` - used to display the rate of each user by stars in comment list component.
 
-  - This component was used in when comment list is created.
+  - This component was used when comment list is created.
 
-- `<StarRating />` - resuable component, used to able user to rate a post by selecting stars while commenting.
+- `<StarRating />` - used to able user to rate a post by selecting stars while commenting.
 
-  - This component was used in when user rate a post.
+  - This component was used when user rates a post.
 
-- `<NavBar />` - resuable component, used for easy navigation of the site.
+- `<NavBar />` - reusable component, used for easy navigation of the site.
 
   - This component is reusable as it will display different icons based on a users logged in status.
   - If no user is logged in a log in, sign up and contact icon will be available however if a user is currently logged in, the full range of icons will be available apart from log in.
@@ -427,7 +426,7 @@ The API for this Front-End application was built with the Django REST Framework.
   - Liked: It shows the posts user has liked
   - Logout: This is used for user to logout
   - Profile: This shows the user avatar and opens the user's profile page
-- Feature is fully responsive and on smaller screen sizes it coverts into a 'Hamburger menu'
+- Feature is fully responsive and on smaller screen sizes it converts into a 'Hamburger menu'
 
 <details><summary>See Nav-bar logged out</summary>
 ![Navbar logged out](docs/features/navbar-loggedout.png)
@@ -480,7 +479,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 ##### Popular Profiles
 
-- This component is displayed on right side of the page in larg screen and at the top in small screen
+- This component is displayed on right side of the page in large screen and at the top in small screen
 - This component uses filter to order all the site users by followers count
 - Logged in users can follow and unfollow users from here as well
 - User can click on these profiles avatar and see profile page of them
@@ -490,11 +489,11 @@ The API for this Front-End application was built with the Django REST Framework.
 - All posts created by users are displayed here.
 - This component has infinite scroll functionality for user to scroll to view posts created and do not have to click for going to next page
 - The post created is in form of a card and displays following:
-  - post owener avatar
+  - post owner avatar
   - Image of post
-  - Car brand, model, other detaisl, production year and post owner experience
+  - Car brand, model, other details, production year and post owner experience
   - likes, comments and rating average
-  - Logged in user and not post owner can show interest and add his number in attendance list
+  - Logged in user and not post owner can like a post
 
 <details><summary>See posts page</summary>
 
@@ -511,12 +510,12 @@ The API for this Front-End application was built with the Django REST Framework.
 #### Liked Page
 
 - The liked page looks identical to the homepage, only the posts component changes
-- In this page all the posts displayed by filtering logged in user is has shown interest to
+- In this page all the posts that already liked by logged in user are displayed
 - It is the same as posts page but Liked icon is active
 
 ##### Search-bar
 
-- This component is provided for user to search all posts easily by their brand, model, other detaisl and production year
+- This component is provided for user to search all posts easily by their brand, model, other details and production year
 - User can also type other user's name and see all posts posted by them
 
 <details><summary>See Search form and filters Section</summary>
@@ -543,7 +542,7 @@ The API for this Front-End application was built with the Django REST Framework.
 #### post Create Page
 
 - This page consists of post create form where user can create an post
-- Logged in user can open this page by clicking on 'add reivew' link on Navbar
+- Logged in user can open this page by clicking on 'add review' link on Navbar
 
 <details><summary>See post Create Page</summary>
 
@@ -629,7 +628,7 @@ The API for this Front-End application was built with the Django REST Framework.
 ### Features to be Implemented
 
 - Reply feature to the comment lists to provide chances to the users to reply a comment.
-- Filter option feature to order posts/cars according thier ratings.
+- Filter option feature to order posts/cars according their ratings.
 
 ## Validation
 
@@ -663,7 +662,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 - While conducting lighthouse validation of profile edit page, commenting, username and password change page lighthouse was refreshing and testing the home page so I have not included the test results
 
-- Note: Lighthouse results of testing the project may be inconsistent due to the functionality of user-uploaded images,Hosting project on Heroku may affected the results (server response time, caching, and network latency). Also additional external libraries reduce the response of the website. I will try improve in further projects to acheive better.
+- Note: Lighthouse results from testing the project may exhibit inconsistencies due to the functionality involving user-uploaded images. Hosting the project on Heroku could affect the results, impacting server response time, caching, and network latency. Additionally, the inclusion of additional external libraries may reduce the website's responsiveness. A significant number of cookies were received from Cloudinary, resulting in a lower rating in the 'Best Practices' criterion. Despite efforts, the persistent low rating in 'Performance' on mobile screens remains unresolved. Improvements will be pursued in future projects to enhance performance.
 
 <details><summary>Home Desktop-screen</summary>
 <img src="docs/validation/home-loggedout-desk.png" >
@@ -805,7 +804,6 @@ The API for this Front-End application was built with the Django REST Framework.
 
 ### Images
 
-- The image for event posted were taken from [Pexels](https://www.pexels.com/)
 - The image for no results and upload were taken from Code Institute walkthrough project [Moments](https://github.com/Code-Institute-Solutions/moments)
 - The car images for posts were taken from different free picture services like Pinterest [Pinterest](https://www.pinterest.de/) and [Pixby](https://pixabay.com/)
 
@@ -818,3 +816,4 @@ The API for this Front-End application was built with the Django REST Framework.
 ## Thank You
 
 - to Code Institute, tutur team and Slack community for helping me when I was getting stuck with some challenges.
+- Special thanks to my wife and lovely daughter for their support during the past month in completing my PP5 project.
