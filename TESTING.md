@@ -11,8 +11,6 @@
 - Project was tested using various devices and browsers
 - In all devices website was loading but unable to sign in in few devices especially smaller devices
 
-- Macbook Pro 2019 16-inch
-
   - Firefox
 
       <details><summary>Screenshot</summary>
@@ -121,13 +119,13 @@
 
 ## Bug Reports and Resolutions
 
+- **Issue:** Application crashing when uploading invalid images during new post creation.
+
+  - **Resolution:** Addressed the problem causing a 500 error during image upload validation. The issue stemmed from a KeyError in the backend comment serializer.
+
 - **Issue:** Automatically logging in when accessing a specific post URL while logged out.
 
   - **Resolution:** Implemented authentication checks to prevent auto-login in such scenarios. (Refer to `dj-rest-auth` Bug Fix documentation)
-
-- **Issue:** New comments not triggering a refresh to display updated rating averages.
-
-  - **Resolution:** Implemented mechanism to refresh rating averages upon submitting a new comment.
 
 - **Issue:** Improper error handling resulting in 400 response instead of displaying validation errors for comments.
 
@@ -137,13 +135,9 @@
 
   - **Resolution:** Resolved the issue by implementing token refresh mechanism.
 
-- **Issue:** Application crashing when uploading invalid images during new post creation.
-  - **Resolution:** Addressed the problem causing a 500 error during image upload validation. The issue stemmed from a KeyError in the backend comment serializer.
-
 ### Unfixed Bugs
 
 - No unfixed bugs from developer side
 - Lighthouse validation for few pages pending due to auto refresh back to home page
 - Unable to login and sign up in some devices which is a known bug and can be ignored
-- Follow/Unfollow bug not fixed
-- New comments not triggering a refresh to display updated rating averages not fixed
+- After each comment/rate subbmision, rating average is not updated instantly and need a refresh. This issue has not fixed.

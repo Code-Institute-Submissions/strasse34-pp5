@@ -429,10 +429,15 @@ The API for this Front-End application was built with the Django REST Framework.
 - Feature is fully responsive and on smaller screen sizes it converts into a 'Hamburger menu'
 
 <details><summary>See Nav-bar logged out</summary>
+
 ![Navbar logged out](docs/features/navbar-loggedout.png)
+
 </details>
+
 <details><summary>See Nav-bar logged in</summary>
+
 ![Navbar logged in](docs/features/navbar-loggedin.png)
+
 </details>
 
 #### Sign Up Page
@@ -484,6 +489,12 @@ The API for this Front-End application was built with the Django REST Framework.
 - Logged in users can follow and unfollow users from here as well
 - User can click on these profiles avatar and see profile page of them
 
+<details><summary>See Popular Profile logged in and out</summary>
+
+![Popular Profile](docs/features/popular-profiles.png)
+
+</details>
+
 ##### Posts Page
 
 - All posts created by users are displayed here.
@@ -532,14 +543,18 @@ The API for this Front-End application was built with the Django REST Framework.
 - post owner can edit and delete the post
 - User can read full content about what the post is about
 
-<details><summary>See post Detail Page</summary>
+<details><summary>See Post Detail Page Logged out</summary>
 
-![post Detail Page](docs/features/postpage-loggedout.png)
-![post Detail Page- post owner](docs/features/pastpage.png)
+![Post Detail Page- Loggedout](docs/features/postpage-loggedout.png)
+
+</details>
+<details><summary>See Post Detail Page Logged in with comment place</summary>
+
+![Post Detail Page- Loggedin](docs/features/pastpage.png)
 
 </details>
 
-#### post Create Page
+#### Post Create Page
 
 - This page consists of post create form where user can create an post
 - Logged in user can open this page by clicking on 'add review' link on Navbar
@@ -550,7 +565,7 @@ The API for this Front-End application was built with the Django REST Framework.
 
 </details>
 
-#### post Edit Page
+#### Post Edit Page
 
 - This page consists of post form where post owner can edit the data of the post
 - post owner can access this page by clicking on edit icon in post detail page
@@ -569,11 +584,15 @@ The API for this Front-End application was built with the Django REST Framework.
 - Logged in user can access this page by clicking on their avatar image in Navbar
 
 <details><summary>See Profile Page Logged out</summary>
+
 ![Profile Page logged out](docs/features/profilepage-loggedout.png)
+
 </details>
 
 <details><summary>See Profile Page Logged in</summary>
-![Profile Page logged out](docs/features/profilepage-loggedin.png)
+
+![Profile Page logged in](docs/features/profilepage-loggedin.png)
+
 </details>
 
 #### Profile Edit Page
@@ -805,13 +824,13 @@ The API for this Front-End application was built with the Django REST Framework.
 ### Images
 
 - The image for no results and upload were taken from Code Institute walkthrough project [Moments](https://github.com/Code-Institute-Solutions/moments)
-- The car images for posts were taken from different free picture services like Pinterest [Pinterest](https://www.pinterest.de/) and [Pixby](https://pixabay.com/)
+- The car images for posts were taken from different free picture services like [Pinterest](https://www.pinterest.de/) and [Pixby](https://pixabay.com/)
 
 ### Code
 
 - The code was written with the help of Code Institute walkthrough project [Moments](https://github.com/Code-Institute-Solutions/moments)
 
-- For making rating stars I used different online free resources like YouTube.
+- For making rating stars I used different online free resources like [this](https://www.youtube.com/watch?v=J-gURMj3M6A) YouTube channel and [MUI](https://mui.com/material-ui/react-rating/) webpage.
 
 ## Thank You
 
